@@ -2,35 +2,124 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Arial, sans-serif;
 }
 
 body {
-    font-family: Arial, sans-serif;
     background-color: #f4f4f4;
-    color: #b7b7b7;
+    color: #333;
     line-height: 1.6;
-    padding: 20px;
-}
-
-header {
-    background-color: #ff4747;
-    color: rgb(255, 232, 232);
-    padding: 20px;
     text-align: center;
 }
 
-h1 {
-    font-size: 2.5em;
+/* Cabeçalho */
+header {
+    background-color: #ff7b7b;
+    color: white;
+    padding: 20px;
+    font-size: 1.5em;
+    font-weight: bold;
 }
 
-h2 {
-    color: #ff4747;
+/* Seção do projeto */
+.projeto {
+    background-color: #ff9999;
+    color: white;
+    padding: 30px;
+    margin: 20px auto;
+    width: 60%;
+    border-radius: 10px;
+}
+
+.projeto h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+    margin-left: 160px;
+    margin-right: 160px;
+}
+
+.projeto p {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    margin-left: 160px;
+    margin-right: 160px;
+    text-align: left;
+}
+
+/* Conteúdo principal */
+.conteudo {
+    background-color: white;
+    color: #333;
+    padding: 30px;
+    margin: 20px auto;
+    width: 60%;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.conteudo h1 {
+    font-size: 1.8em;
+    color: #555;
+    margin-bottom: 15px;
+    margin-top: 30px;
+}
+
+.conteudo h2 {
+    font-size: 1.4em;
+    color: #777;
     margin-top: 20px;
+    margin-left: 160px;
+    margin-right: 160px;
+    text-align: left;
 }
 
+.conteudo p {
+    font-size: 1.1em;
+    color: #666;
+    margin-top: 10px;
+    margin-left: 160px;
+    margin-right: 160px;
+    text-align: left;
+}
+
+/* Botão */
+.botao {
+    background-color: #ff7b7b;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    margin-top: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.botao:hover {
+    background-color: #ff4f4f;
+}
+
+/* Rodapé */
 footer {
     text-align: center;
+    padding: 20px;
     margin-top: 30px;
     font-size: 0.9em;
-    color: #d4d4d4;
+    color: #555;
+}
+
+.logo-flutuante {
+    position: fixed; /* Mantém o logo fixo na tela */
+    top: 50%; /* Centraliza verticalmente */
+    right: 20px; /* Afasta do lado direito */
+    transform: translateY(-50%); /* Ajusta a posição vertical */
+    width: 80px; /* Define o tamanho do logo */
+    height: auto; /* Mantém a proporção */
+    z-index: 1000; /* Garante que o logo fique sobre os outros elementos */
+    opacity: 0.8; /* Torna o logo um pouco transparente */
+    transition: opacity 0.3s; /* Efeito suave ao passar o mouse */
+}
+
+.logo-flutuante:hover {
+    opacity: 1; /* Deixa o logo 100% visível ao passar o mouse */
 }

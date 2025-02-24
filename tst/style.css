@@ -14,12 +14,75 @@ body {
 
 /* Cabeçalho */
 header {
+    display: flex;
+    justify-content: space-between; /* Separa os elementos */
+    align-items: center; /* Centraliza verticalmente */
     background-color: #ff7b7b;
     color: white;
     padding: 20px;
     font-size: 1.5em;
     font-weight: bold;
 }
+
+.menu {
+    display: flex;
+    gap: 15px; /* Espaço entre os botões */
+}
+
+.btn {
+    position: relative;
+    background: none;
+    color: #ffffff;
+    padding: 2px 10px;
+    text-decoration: none;
+    font-size: 0.7em;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: color 0.4s ease-in-out;
+}
+
+/* Criando o sublinhado invisível, já com largura total */
+.btn::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -1px; /* Fica logo abaixo do botão */
+    width: 80%;
+    height: 0.8px;
+    background-color: #ffffff;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    transform: translateX(-50%); /* Centraliza a linha */
+}
+
+/* Fazendo o sublinhado aparecer suavemente */
+.btn:hover::after {
+    opacity: 1;
+}
+
+.btn.active::after {
+    opacity: 1;
+}
+
+/*
+.SobreNos {
+    background-color: #ff7b7b;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    font-size: 0.7em;
+    margin-top: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    
+}
+
+.SobreNos:hover {
+    background-color: #ffffff;
+}
+*/
 
 /* Seção do projeto */
 .projeto {
@@ -123,3 +186,4 @@ footer {
 .logo-flutuante:hover {
     opacity: 1; /* Deixa o logo 100% visível ao passar o mouse */
 }
+

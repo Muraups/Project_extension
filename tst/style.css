@@ -308,3 +308,13 @@ footer {
     }
 }
 
+u{
+    font-weight: bolder !important;
+    color: #ff4f4f;
+}
+
+.team img{
+    height: 200px;
+    width: 200px;
+}
+

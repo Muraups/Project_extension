@@ -29,7 +29,7 @@ header {
     display: flex;
     justify-content: space-between; /* Separa os elementos */
     align-items: center; /* Centraliza verticalmente */
-    background-color: #ff7b7b;
+    background-color: #fe3434;
     color: white;
     padding: 20px;
     font-size: 1.5em;
@@ -229,3 +229,82 @@ footer {
         flex: 1 1 45%; /* Um item por linha no mobile */
     }
 }
+
+.icon{
+    border-radius: 10%;
+    max-width: 100px;
+}
+
+/* Seção Sobre Nós */
+.sobre-nos {
+    background-color: white;
+    color: #333;
+    padding: 40px 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    width: 80%;
+    max-width: 1200px;
+}
+
+.sobre-nos h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #fe3434;
+}
+
+/* Grid para organizar os participantes */
+.team {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Cartões dos participantes */
+.participant {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 10px;
+    width: 250px;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.participant img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.participant h3 {
+    margin: 10px 0 5px;
+    color: #333;
+}
+
+.participant p {
+    margin: 5px 0;
+    color: #666;
+}
+
+/* Links de e-mail */
+.participant a {
+    color: #fe3434;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.participant a:hover {
+    text-decoration: underline;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .team {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+

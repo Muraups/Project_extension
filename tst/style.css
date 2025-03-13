@@ -255,7 +255,7 @@ footer {
 }
 
 /* Grid para organizar os participantes */
-.team {
+.team1, .team2{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -265,17 +265,23 @@ footer {
 
 /* Cartões dos participantes */
 .participant {
+    margin: 1px 45px;
     background-color: #f4f4f4;
     padding: 20px;
     border-radius: 10px;
     width: 250px;
     text-align: center;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+
 }
 
+.participant:hover {
+    transform: scale(1.125); /* Aumenta o tamanho do elemento */
+}
 .participant img {
-    width: 100%;
-    height: auto;
+    width: 200px;
+    height: 200px;
     border-radius: 10px;
 }
 

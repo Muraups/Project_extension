@@ -42,6 +42,7 @@ body {
     height: 100vh; /* Mantém o body ocupando toda a altura da tela */
     overflow-x: hidden; /* Impede a rolagem horizontal */
     margin: 0 auto; /* Centraliza o conteúdo */
+    height: fit-content;
 }
 
 .conteudo h1 {

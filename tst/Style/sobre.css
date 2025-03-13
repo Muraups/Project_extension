@@ -36,10 +36,6 @@ header {
     font-weight: bold;
 }
 
-.menu {
-    display: flex;
-    gap: 15px; /* Espaço entre os botões */
-}
 
 .btn {
     position: relative;
@@ -77,93 +73,6 @@ header {
     opacity: 1;
 }
 
-/* Seção do projeto */
-.projeto {
-    background-color: #ff9999;
-    color: white;
-    padding: 30px;
-    margin: 20px auto;
-    width: 80%;
-    border-radius: 10px;
-}
-
-.projeto h1 {
-    font-size: 2em;
-    margin-bottom: 10px;
-    margin-left: 160px;
-    margin-right: 160px;
-}
-
-.projeto p {
-    font-size: 1.1em;
-    margin-bottom: 10px;
-    margin-left: 160px;
-    margin-right: 160px;
-    text-align: left;
-}
-
-/* Conteúdo principal */
-.conteudo {
-    background-color: white;
-    color: #333;
-    padding: 30px;
-    margin: 20px auto;
-    width: 80%;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-
-        /* Fixando o tamanho */
-    width: 100vw; /* Mantém o corpo ocupando a largura da tela */
-    min-width: 800px; /* Define um tamanho mínimo para o corpo */
-    max-width: 1200px; /* Define um tamanho máximo */
-            
-        /* Fixando a altura da tela */
-    height: 100vh; /* Mantém o body ocupando toda a altura da tela */
-    overflow-x: hidden; /* Impede a rolagem horizontal */
-    margin: 0 auto; /* Centraliza o conteúdo */
-}
-
-.conteudo h1 {
-    font-size: 2.2em;
-    color: #323232;
-    margin-bottom: 15px;
-    margin-top: 30px;
-}
-
-.conteudo h2 {
-    font-size: 1.4em;
-    color: #777;
-    margin-top: 20px;
-    margin-left: 160px;
-    margin-right: 160px;
-    text-align: left;
-}
-
-.conteudo p {
-    font-size: 1.1em;
-    color: #666;
-    margin-top: 10px;
-    margin-left: 160px;
-    margin-right: 160px;
-    text-align: left;
-}
-
-/* Botão */
-.botao {
-    background-color: #ff7b7b;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1.2em;
-    margin-top: 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.botao:hover {
-    background-color: #ff4f4f;
-}
 
 /* Rodapé */
 footer {
@@ -190,51 +99,6 @@ footer {
     opacity: 1; /* Deixa o logo 100% visível ao passar o mouse */
 }
 
-.objetivos {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-.objetivo {
-    flex: 1 1 45%; /* Define dois itens por linha */
-    min-width: 300px;
-    background-color: transparent; /* Sem fundo */
-    box-shadow: none; /* Sem sombra */
-    padding: 10px;
-    text-align: left; /* Alinhar à esquerda */
-}
-
-.objetivo h2 {
-    font-size: 25px;
-    font-weight: bold;
-    color: #333;
-    margin-left: 10px;
-    margin-right: 10px;
-}
-
-.objetivo p {
-    font-size: 18px;
-    line-height: 1.5;
-    color: #666;
-    margin-left: 10px;
-    margin-right: 10px;
-}
-
-@media (max-width: 768px) {
-    .objetivo {
-        flex: 1 1 45%; /* Um item por linha no mobile */
-    }
-}
-
-.icon{
-    border-radius: 10%;
-    max-width: 100px;
-}
-
 /* Seção Sobre Nós */
 .sobre-nos {
     background-color: white;
@@ -245,7 +109,7 @@ footer {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     margin: 20px auto;
     width: 80%;
-    max-width: 1200px;
+    max-width: 1300px;
 }
 
 .sobre-nos h2 {
@@ -269,11 +133,10 @@ footer {
     background-color: #f4f4f4;
     padding: 20px;
     border-radius: 10px;
-    width: 250px;
+    width: 300px;
     text-align: center;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
-
 }
 
 .participant:hover {

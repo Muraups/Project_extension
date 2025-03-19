@@ -63,7 +63,6 @@ document.addEventListener("DOMContentLoaded", function() {
     function criarPergunta() {
         const perguntaAtual = quiz[indiceAtual];
         
-        // Limpar o conteúdo anterior
         quizContainer.innerHTML = `
             <p>${perguntaAtual.pergunta}</p>
             <div id="opcoes"></div>
@@ -94,17 +93,22 @@ document.addEventListener("DOMContentLoaded", function() {
         const perguntaAtual = quiz[indiceAtual];
         const opcoes = document.querySelectorAll(".opcao");
 
-        if (respostaSelecionada === perguntaAtual.correta) {
-            opcoes[respostaSelecionada].classList.add("correto");
-        } else {
-            opcoes[respostaSelecionada].classList.add("errado");
-            opcoes[perguntaAtual.correta].classList.add("correto");
+        if (respostaSelecionada !== null) {
+            if (respostaSelecionada === perguntaAtual.correta) {
+                opcoes[respostaSelecionada].classList.add("correta");
+                explicacaoEl.textContent = "Resposta correta!";
+                explicacaoEl.style.color = "green";
+            } else {
+                opcoes[respostaSelecionada].classList.add("errada");
+                opcoes[perguntaAtual.correta].classList.add("correta");
+                explicacaoEl.textContent = "Errado! " + perguntaAtual.explicacao;
+                explicacaoEl.style.color = "red";
+            }
+            opcoes.forEach(botao => botao.disabled = true);
+            explicacaoEl.style.display = "block";
+            btnEnviar.style.display = "none";
+            btnProximo.style.display = "inline-block";
         }
-
-        explicacaoEl.textContent = perguntaAtual.explicacao;
-        explicacaoEl.style.display = "block";
-        btnEnviar.style.display = "none";
-        btnProximo.style.display = "inline-block";
     }
 
     function proximaPergunta() {
@@ -120,6 +124,5 @@ document.addEventListener("DOMContentLoaded", function() {
     btnEnviar.addEventListener("click", verificarResposta);
     btnProximo.addEventListener("click", proximaPergunta);
 
-    // Criar a primeira pergunta
     criarPergunta();
 });

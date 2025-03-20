@@ -1,4 +1,13 @@
 document.addEventListener("DOMContentLoaded", function() {
+    // Função para embaralhar as perguntas
+    function embaralharPerguntas(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]]; // Troca os elementos
+        }
+    }
+
+    // Array de perguntas do quiz
     const quiz = [
         {
             pergunta: "Qual é a quantidade de sangue doada em uma doação de sangue?",
@@ -52,8 +61,12 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     ];
 
+    // Embaralha as perguntas antes de começar o quiz
+    embaralharPerguntas(quiz);
+
     let indiceAtual = 0;
     let respostaSelecionada = null;
+    let pontuacao = 0;
 
     const quizContainer = document.getElementById("quiz-container");
     const btnEnviar = document.getElementById("enviar");
@@ -74,10 +87,31 @@ document.addEventListener("DOMContentLoaded", function() {
             const btn = document.createElement("button");
             btn.textContent = opcao;
             btn.classList.add("opcao");
+            btn.style.padding = "10px";
+            btn.style.margin = "5px";
+            btn.style.border = "1px solid transparent";
+            btn.style.borderRadius = "5px";
+            btn.style.backgroundColor = "#f0f0f0";
+            btn.style.cursor = "pointer";
+            btn.style.transition = "background-color 0.3s, transform 0.2s, border 0.2s";
+            
+            btn.onmouseover = () => btn.style.backgroundColor = "#ddd";
+            btn.onmouseout = () => {
+                if (!btn.classList.contains("selecionado")) {
+                    btn.style.backgroundColor = "#f0f0f0";
+                }
+            };
+            
             btn.onclick = () => {
                 respostaSelecionada = i;
-                document.querySelectorAll(".opcao").forEach(b => b.classList.remove("selecionado"));
+                document.querySelectorAll(".opcao").forEach(b => {
+                    b.classList.remove("selecionado");
+                    b.style.backgroundColor = "#f0f0f0";
+                    b.style.border = "1px solid transparent";
+                });
                 btn.classList.add("selecionado");
+                btn.style.backgroundColor = "#d3d3d3";
+                btn.style.border = "1px solid black";
                 btnEnviar.disabled = false;
             };
             opcoesContainer.appendChild(btn);
@@ -95,12 +129,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
         if (respostaSelecionada !== null) {
             if (respostaSelecionada === perguntaAtual.correta) {
-                opcoes[respostaSelecionada].classList.add("correta");
+                opcoes[respostaSelecionada].style.backgroundColor = "#28a745";
                 explicacaoEl.textContent = "Resposta correta!";
                 explicacaoEl.style.color = "green";
+                pontuacao++;
             } else {
-                opcoes[respostaSelecionada].classList.add("errada");
-                opcoes[perguntaAtual.correta].classList.add("correta");
+                opcoes[respostaSelecionada].style.backgroundColor = "#dc3545";
+                opcoes[perguntaAtual.correta].style.backgroundColor = "#28a745";
                 explicacaoEl.textContent = "Errado! " + perguntaAtual.explicacao;
                 explicacaoEl.style.color = "red";
             }
@@ -116,7 +151,7 @@ document.addEventListener("DOMContentLoaded", function() {
             indiceAtual++;
             criarPergunta();
         } else {
-            quizContainer.innerHTML = "<h3>Quiz concluído!</h3>";
+            quizContainer.innerHTML = `<h3>Quiz concluído!</h3><p>Você acertou ${pontuacao} de ${quiz.length} perguntas.</p>`;
             btnProximo.style.display = "none";
         }
     }

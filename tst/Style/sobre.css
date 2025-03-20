@@ -36,6 +36,10 @@ header {
     font-weight: bold;
 }
 
+.menu {
+    display: flex;
+    gap: 15px; /* Espaço entre os botões */
+}
 
 .btn {
     position: relative;
@@ -71,7 +75,7 @@ header {
 
 .btn.active::after {
     opacity: 1;
-}
+}   
 
 
 /* Rodapé */

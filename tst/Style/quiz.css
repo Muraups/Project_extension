@@ -46,8 +46,9 @@ body {
     max-width: 1200px;  /* Define um tamanho máximo */
             
         /* Fixando a altura da tela */
-    height: 100vh; /* Mantém o body ocupando toda a altura da tela */
-    max-height: 600px;
+        min-height: 300px; /* Define uma altura mínima */
+        height: auto; /* Permite que a altura cresça conforme o conteúdo */
+        max-height: none; /* Remove a restrição de altura máxima */
     overflow-x: hidden; /* Impede a rolagem horizontal */
     margin: 0 auto; /* Centraliza o conteúdo */
 
@@ -142,6 +143,8 @@ header {
 Estilização do quiz em si
 
 */
+
+
 
 .pergunta {
     border: solid 1px;

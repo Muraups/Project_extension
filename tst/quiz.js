@@ -13,21 +13,21 @@ document.addEventListener("DOMContentLoaded", function() {
             pergunta: "Qual é a quantidade de sangue doada em uma doação de sangue?",
             opcoes: [
                 "300 ml",
-                "500 ml",
-                "700 ml"
+                "700 ml",
+                "500 ml"
             ],
-            correta: 1,
+            correta: 2,
             explicacao: "A quantidade de sangue doada em uma doação é geralmente de 500 ml, o que é suficiente para ajudar a salvar várias vidas."
         },
         {
-            pergunta: "Qual é o tempo recomendado para fazer uma nova doação de sangue?",
+            pergunta: "Quantas vezes uma pessoa pode doar sangue ao longo do ano?",
             opcoes: [
-                "1 semana",
-                "2 meses",
-                "6 meses"
+                "Homens podem doar 6 vezes e mulheres 4 vezes por ano",
+                "Homens podem doar 3 vezes e mulheres 2 vezes por ano",
+                "Homens podem doar 4 vezes, mulheres 3 vezes, com intervalos de 60 e 90 dias respectivamente."
             ],
-            correta: 1,
-            explicacao: "O tempo recomendado para fazer uma nova doação de sangue é de 2 meses para homens e 3 meses para mulheres."
+            correta: 2,
+            explicacao: "Homens podem doar 4 vezes, mulheres 3 vezes, com intervalos de 60 e 90 dias respectivamente, pois os níveis de ferro dos homens costumam ser mais altos e as mulheres costumam perder sangue naturalmente no ciclo menstrual."
         },
         {
             pergunta: "Quem pode ser doador de sangue?",
@@ -58,7 +58,58 @@ document.addEventListener("DOMContentLoaded", function() {
             ],
             correta: 1,
             explicacao: "O sangue doado é armazenado em bancos de sangue e pode ser utilizado para transfusões em hospitais ou para pacientes que necessitam."
-        }
+        },
+        {
+            pergunta: " Pessoas de qualquer tipo sanguíneo podem doar sangue?",
+            opcoes: [
+                "Não, apenas pessoas com sangue tipo O podem doar",
+                " Apenas pessoas com Rh positivo podem doar sangue",
+                "Sim, mas o tipo O negativo é mais útil"
+            ],
+            correta: 2,
+            explicacao: "o tipo O negativo é mais útil pois pode ser transfundido para qualquer pessoa, independentemente do seu tipo sanguíneo, sem risco imediato de reação adversa."
+        },
+        {
+            pergunta: "Quais são os cuidados antes de fazer a doação de sangue?",
+            opcoes: [
+                " Não ingerir alimentos sólidos e estar em jejum por 24 horas",
+                "Apenas estar sem febre ou sintomas de doenças",
+                "Estar descansado, alimentado e sem ter consumido álcool nas últimas 24  horas."
+            ],
+            correta: 2,
+            explicacao: "Essas recomendações garantem a segurança do doador e do receptor durante a doação de sangue."
+        },  
+        {
+            pergunta: "Quanto tempo demora para o organismo repor o volume de sangue doado?",
+            opcoes: [
+                "Apenas algumas horas",
+                "1 a 2 dias",
+                "Cerca de 1 semana"
+            ],
+            correta: 1,
+            explicacao: "O volume de sangue doado é reposto pelo organismo em 1 a 2 dias, enquanto os componentes como células podem levar um pouco mais de tempo."
+        },
+        {
+            pergunta: "Qual é o benefício direto da doação de sangue para o doador?",
+            opcoes: [
+                "Melhora imediata da saúde",
+                "Diagnóstico de algumas condições de saúde por meio de exames realizados",
+                "Aumento da produção de glóbulos vermelhos"
+            ],
+            correta: 1,
+            explicacao: "Ao doar sangue, o doador passa por exames que podem indicar algumas condições de saúde, ajudando no cuidado preventivo."
+        },
+        {
+            pergunta: "Quem pode se beneficiar do sangue doado?",
+            opcoes: [
+                "Pessoas em várias condições, como acidentes, cirurgias e tratamentos de saúde",
+                "Somente pacientes em cirurgias complexas",
+                "Apenas pessoas envolvidas em acidentes"
+            ],
+            correta: 0,
+            explicacao: "O sangue doado é usado em emergências, cirurgias, tratamentos de doenças como anemias graves e muito mais."
+        },
+        
             ];
 
     // Embaralha as perguntas antes de começar o quiz
@@ -130,7 +181,7 @@ document.addEventListener("DOMContentLoaded", function() {
         if (respostaSelecionada !== null) {
             if (respostaSelecionada === perguntaAtual.correta) {
                 opcoes[respostaSelecionada].style.backgroundColor = "#28a745";
-                explicacaoEl.textContent = "Resposta correta!";
+                explicacaoEl.textContent = "Resposta Correta: Explicação: " + perguntaAtual.explicacao;
                 explicacaoEl.style.color = "green";
                 pontuacao++;
             } else {

@@ -32,11 +32,11 @@ document.addEventListener("DOMContentLoaded", function() {
         {
             pergunta: "Quem pode ser doador de sangue?",
             opcoes: [
-                "Qualquer pessoa acima de 18 anos e com boa saúde",
-                "Pessoas com doenças crônicas",
-                "Somente pessoas que já fizeram a doação anteriormente"
+                "Apenas pessoas com mais de 21 anos e peso superior a 60kg",
+                "Pessoas entre 18 e 69 anos, com peso superior a 50kg e boas condições de saúde",
+                "Apenas homens saudáveis com mais de 18 anos"
             ],
-            correta: 0,
+            correta: 1,
             explicacao: "Qualquer pessoa saudável entre 18 e 69 anos, com peso acima de 50kg, pode ser um doador de sangue, desde que não tenha contraindicações."
         },
         {
@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function() {
             correta: 1,
             explicacao: "O sangue doado é armazenado em bancos de sangue e pode ser utilizado para transfusões em hospitais ou para pacientes que necessitam."
         }
-    ];
+            ];
 
     // Embaralha as perguntas antes de começar o quiz
     embaralharPerguntas(quiz);

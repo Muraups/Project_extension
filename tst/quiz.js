@@ -193,7 +193,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function proximaPergunta() {
-        if (indiceAtual === quiz.length - 1 && !ultimaExplicacaoMostrada) {
+        if (indiceAtual === quiz.length  && !ultimaExplicacaoMostrada) {
             // Se for a última pergunta e a explicação ainda não foi mostrada, mostra primeiro
             ultimaExplicacaoMostrada = true;
         } else if (indiceAtual < quiz.length - 1) {

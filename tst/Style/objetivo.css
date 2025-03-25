@@ -6,7 +6,7 @@
 }
 
 body {
-    background-color: #f4f4f4;
+    background-color: #ffeaea;
     color: #333;
     line-height: 1.6;
     text-align: center;
@@ -186,4 +186,9 @@ footer {
     color: #666;
     margin-left: 10px;
     margin-right: 10px;
+}
+
+.Logo{
+    width: 200px;
+    height: auto;
 }

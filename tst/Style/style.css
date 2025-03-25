@@ -6,7 +6,7 @@
 }
 
 body {
-    background-color: #f4f4f4;
+    background-color: #ffeaea;
     color: #333;
     line-height: 1.6;
     text-align: center;
@@ -29,7 +29,7 @@ header {
     display: flex;
     justify-content: space-between; /* Separa os elementos */
     align-items: center; /* Centraliza verticalmente */
-    background-color: #fe3434;
+    background-color: #fe3434; 
     color: white;
     padding: 20px;
     font-size: 1.5em;
@@ -79,7 +79,7 @@ header {
 
 /* Seção do projeto */
 .projeto {
-    background-color: #ff9999;
+    background-color: #fe3434;
     color: white;
     padding: 30px;
     margin: 20px auto;
@@ -151,7 +151,7 @@ header {
 
 /* Botão */
 .botao {
-    background-color: #ff7b7b;
+    background-color: #fe3434;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -163,7 +163,7 @@ header {
 }
 
 .botao:hover {
-    background-color: #ff4f4f;
+    background-color: #fe3434;
 }
 
 /* Rodapé */
@@ -189,4 +189,9 @@ footer {
 
 .logo-flutuante:hover {
     opacity: 1; /* Deixa o logo 100% visível ao passar o mouse */
+}
+
+.Logo{
+    width: 200px;
+    height: auto;
 }

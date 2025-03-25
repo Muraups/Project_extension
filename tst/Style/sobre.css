@@ -6,7 +6,7 @@
 }
 
 body {
-    background-color: #f4f4f4;
+    background-color: #ffeaea;
     color: #333;
     line-height: 1.6;
     text-align: center;
@@ -191,3 +191,7 @@ u{
     width: 200px;
 }
 
+.Logo{
+    width: 200px;
+    height: auto;
+}

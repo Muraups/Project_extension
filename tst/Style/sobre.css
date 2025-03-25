@@ -1,0 +1,193 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.detail{   
+    /* Fixando o tamanho */
+    width: 100vw; /* Mantém o corpo ocupando a largura da tela */
+    min-width: 800px; /* Define um tamanho mínimo para o corpo */
+    max-width: 1200px; /* Define um tamanho máximo */
+        
+    /* Fixando a altura da tela */
+    height: 100vh; /* Mantém o body ocupando toda a altura da tela */
+    overflow-x: hidden; /* Impede a rolagem horizontal */
+    margin: 0 auto; /* Centraliza o conteúdo */
+}
+
+/* Cabeçalho */
+header {
+    display: flex;
+    justify-content: space-between; /* Separa os elementos */
+    align-items: center; /* Centraliza verticalmente */
+    background-color: #fe3434;
+    color: white;
+    padding: 20px;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.menu {
+    display: flex;
+    gap: 15px; /* Espaço entre os botões */
+}
+
+.btn {
+    position: relative;
+    background: none;
+    color: #ffffff;
+    padding: 2px 10px;
+    text-decoration: none;
+    font-size: 0.7em;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: color 0.4s ease-in-out;
+}
+
+/* Criando o sublinhado invisível, já com largura total */
+.btn::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -1px; /* Fica logo abaixo do botão */
+    width: 80%;
+    height: 0.8px;
+    background-color: #ffffff;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    transform: translateX(-50%); /* Centraliza a linha */
+}
+
+/* Fazendo o sublinhado aparecer suavemente */
+.btn:hover::after {
+    opacity: 1;
+}
+
+.btn.active::after {
+    opacity: 1;
+}   
+
+
+/* Rodapé */
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+    font-size: 0.9em;
+    color: #5c5c5c;
+}
+
+.logo-flutuante {
+    position: fixed; /* Mantém o logo fixo na tela */
+    top: 50%; /* Centraliza verticalmente */
+    right: 20px; /* Afasta do lado direito */
+    transform: translateY(-50%); /* Ajusta a posição vertical */
+    width: 80px; /* Define o tamanho do logo */
+    height: auto; /* Mantém a proporção */
+    z-index: 1000; /* Garante que o logo fique sobre os outros elementos */
+    opacity: 0.8; /* Torna o logo um pouco transparente */
+    transition: opacity 0.3s; /* Efeito suave ao passar o mouse */
+}
+
+.logo-flutuante:hover {
+    opacity: 1; /* Deixa o logo 100% visível ao passar o mouse */
+}
+
+/* Seção Sobre Nós */
+.sobre-nos {
+    background-color: white;
+    color: #333;
+    padding: 40px 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    width: 80%;
+    max-width: 1300px;
+}
+
+.sobre-nos h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #fe3434;
+}
+
+/* Grid para organizar os participantes */
+.team1, .team2{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Cartões dos participantes */
+.participant {
+    margin: 1px 45px;
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.participant:hover {
+    transform: scale(1.125); /* Aumenta o tamanho do elemento */
+}
+.participant img {
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+}
+
+.participant h3 {
+    margin: 10px 0 5px;
+    color: #333;
+}
+
+.participant p {
+    margin: 5px 0;
+    color: #666;
+}
+
+/* Links de e-mail */
+.participant a {
+    color: #fe3434;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.participant a:hover {
+    text-decoration: underline;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .team {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+u{
+    font-weight: bolder !important;
+    color: #ff4f4f;
+}
+
+.team img{
+    height: 200px;
+    width: 200px;
+}
+

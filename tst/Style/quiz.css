@@ -252,6 +252,7 @@ button {
     color: white;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.2s;
+    background-color: #007bff;
 }
 
 #enviar {

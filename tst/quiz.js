@@ -1,9 +1,8 @@
-document.addEventListener("DOMContentLoaded", function() {
-    // Função para embaralhar as perguntas
+document.addEventListener("DOMContentLoaded", function () {
     function embaralharPerguntas(array) {
         for (let i = array.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
-            [array[i], array[j]] = [array[j], array[i]]; // Troca os elementos
+            [array[i], array[j]] = [array[j], array[i]];
         }
     }
 
@@ -118,15 +117,23 @@ document.addEventListener("DOMContentLoaded", function() {
     let indiceAtual = 0;
     let respostaSelecionada = null;
     let pontuacao = 0;
+    let ultimaExplicacaoMostrada = false; // Novo controle
 
     const quizContainer = document.getElementById("quiz-container");
     const btnEnviar = document.getElementById("enviar");
     const btnProximo = document.getElementById("proximo");
     const explicacaoEl = document.getElementById("explicacao");
+    const btnReiniciar = document.createElement("button");
+
+    btnReiniciar.textContent = "Tentar novamente";
+    btnReiniciar.style.display = "none";
+    btnReiniciar.onclick = reiniciarQuiz;
+    quizContainer.appendChild(btnReiniciar);
 
     function criarPergunta() {
+        ultimaExplicacaoMostrada = false; // Resetar controle
         const perguntaAtual = quiz[indiceAtual];
-        
+
         quizContainer.innerHTML = `
             <p>${perguntaAtual.pergunta}</p>
             <div id="opcoes"></div>
@@ -138,31 +145,14 @@ document.addEventListener("DOMContentLoaded", function() {
             const btn = document.createElement("button");
             btn.textContent = opcao;
             btn.classList.add("opcao");
-            btn.style.padding = "10px";
-            btn.style.margin = "5px";
-            btn.style.border = "1px solid transparent";
-            btn.style.borderRadius = "5px";
-            btn.style.backgroundColor = "#f0f0f0";
-            btn.style.cursor = "pointer";
-            btn.style.transition = "background-color 0.3s, transform 0.2s, border 0.2s";
-            
-            btn.onmouseover = () => btn.style.backgroundColor = "#ddd";
-            btn.onmouseout = () => {
-                if (!btn.classList.contains("selecionado")) {
-                    btn.style.backgroundColor = "#f0f0f0";
-                }
-            };
-            
             btn.onclick = () => {
                 respostaSelecionada = i;
                 document.querySelectorAll(".opcao").forEach(b => {
                     b.classList.remove("selecionado");
                     b.style.backgroundColor = "#f0f0f0";
-                    b.style.border = "1px solid transparent";
                 });
                 btn.classList.add("selecionado");
                 btn.style.backgroundColor = "#d3d3d3";
-                btn.style.border = "1px solid black";
                 btnEnviar.disabled = false;
             };
             opcoesContainer.appendChild(btn);
@@ -181,30 +171,76 @@ document.addEventListener("DOMContentLoaded", function() {
         if (respostaSelecionada !== null) {
             if (respostaSelecionada === perguntaAtual.correta) {
                 opcoes[respostaSelecionada].style.backgroundColor = "#28a745";
-                explicacaoEl.textContent = "Resposta Correta: Explicação: " + perguntaAtual.explicacao;
-                explicacaoEl.style.color = "green";
+                explicacaoEl.textContent = "Resposta Correta: " + perguntaAtual.explicacao;
                 pontuacao++;
             } else {
                 opcoes[respostaSelecionada].style.backgroundColor = "#dc3545";
                 opcoes[perguntaAtual.correta].style.backgroundColor = "#28a745";
                 explicacaoEl.textContent = "Errado! " + perguntaAtual.explicacao;
-                explicacaoEl.style.color = "red";
             }
             opcoes.forEach(botao => botao.disabled = true);
             explicacaoEl.style.display = "block";
             btnEnviar.style.display = "none";
+
+            if (indiceAtual === quiz.length - 1) {
+                btnProximo.textContent = "Finalizar Quiz";
+            } else {
+                btnProximo.textContent = "Próximo";
+            }
+
             btnProximo.style.display = "inline-block";
         }
     }
 
     function proximaPergunta() {
-        if (indiceAtual < quiz.length - 1) {
+        if (indiceAtual === quiz.length - 1 && !ultimaExplicacaoMostrada) {
+            // Se for a última pergunta e a explicação ainda não foi mostrada, mostra primeiro
+            ultimaExplicacaoMostrada = true;
+        } else if (indiceAtual < quiz.length - 1) {
             indiceAtual++;
             criarPergunta();
         } else {
-            quizContainer.innerHTML = `<h3>Quiz concluído!</h3><p>Você acertou ${pontuacao} de ${quiz.length} perguntas.</p>`;
-            btnProximo.style.display = "none";
+            exibirResumo();
         }
+    }
+
+    function exibirResumo() {
+        let porcentagem = (pontuacao / quiz.length) * 100;
+        let mensagem = "";
+
+        if (porcentagem === 100) {
+            mensagem = "Parabéns! Você acertou todas as perguntas! 🎉";
+        } else if (porcentagem >= 70) {
+            mensagem = "Ótimo trabalho! Você teve um ótimo desempenho! 👍";
+        } else if (porcentagem >= 50) {
+            mensagem = "Bom esforço! Mas ainda pode melhorar. 😉";
+        } else {
+            mensagem = "Não desista! Tente novamente para melhorar sua pontuação. 💪";
+        }
+
+        explicacaoEl.style.display = "none"; // Esconde a explicação
+explicacaoEl.textContent = ""; // Remove o conteúdo da explicação
+
+        quizContainer.innerHTML = `
+            <h3>Quiz concluído!</h3>
+            <p>Você acertou ${pontuacao} de ${quiz.length} perguntas (${porcentagem.toFixed(2)}%).</p>
+            <p>${mensagem}</p>
+        `;
+
+        btnProximo.style.display = "none";
+        const btnReiniciar = document.createElement("button");
+        btnReiniciar.textContent = "Tentar novamente";
+        btnReiniciar.onclick = reiniciarQuiz;
+        quizContainer.appendChild(btnReiniciar);
+
+    }
+
+    function reiniciarQuiz() {
+        indiceAtual = 0;
+        pontuacao = 0;
+        embaralharPerguntas(quiz);
+        btnReiniciar.style.display = "none";
+        criarPergunta();
     }
 
     btnEnviar.addEventListener("click", verificarResposta);

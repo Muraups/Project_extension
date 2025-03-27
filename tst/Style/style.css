@@ -77,30 +77,6 @@ header {
     opacity: 1;
 }
 
-/* Seção do projeto */
-.projeto {
-    background-color: #f84848;
-    color: white;
-    padding: 30px;
-    margin: 20px auto;
-    width: 80%;
-    border-radius: 10px;
-}
-
-.projeto h1 {
-    font-size: 2em;
-    margin-bottom: 10px;
-    margin-left: 160px;
-    margin-right: 160px;
-}
-
-.projeto p {
-    font-size: 1.1em;
-    margin-bottom: 10px;
-    margin-left: 160px;
-    margin-right: 160px;
-    text-align: left;
-}
 
 /* Conteúdo principal */
 .conteudo {

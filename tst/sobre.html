@@ -13,10 +13,16 @@
 
         <div class="menu">
             <a href="index.html" class="btn">Início</a>
-            <a href="sobre.html" class="btn active">Sobre Nós</a>
             <a href="objetivo.html" class="btn">Objetivo</a>
             <a href="quiz.html" class="btn">Quiz</a>
+            <a href="sobre.html" class="btn active">Sobre Nós</a>
         </div>
+        
+        <!-- Add o nome e foto no Header Como um botão para a tela de pefil-->
+        <a href="perfil.html" id="userInfo" style="display: none; align-items: center; gap: 10px; text-decoration: none; color: inherit;">
+            <img id="userPic" src="" alt="Foto do usuário" style="width: 40px; height: 40px; border-radius: 50%;">
+            <span id="userName" style="font-weight: bold;"></span>
+        </a>
     </header>
 
     <section class="sobre-nos">
@@ -68,5 +74,19 @@
     <a href="https://www.unifil.br" target="_blank">
         <img src="Logo/unifil.png" alt="Logo" class="logo-flutuante">
     </a>
+
+    
+    <script>
+        // Puxa as infos do usuario para ser possivel utilizar a função do botão do peril no Header
+        document.addEventListener("DOMContentLoaded", function() {
+            const userData = JSON.parse(localStorage.getItem("userData"));
+            if (userData) {
+                document.getElementById("userInfo").style.display = "flex";
+                document.getElementById("userName").textContent = userData.given_name; // Primeiro nome
+                document.getElementById("userPic").src = userData.picture;
+            }
+        });
+    </script>      
+
 </body>
 </html>

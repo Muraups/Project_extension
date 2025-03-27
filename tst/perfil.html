@@ -4,48 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil do Usuário</title>
-    <link rel="stylesheet" href="Style/style.css">
+    <link rel="stylesheet" href="Style/perfil.css">
 </head>
 <body>
     <header>
         <img src="Logo/logo2.png" alt="Logo" class="Logo">
         <div class="menu">
             <a href="index.html" class="btn">Início</a>
-            <a href="perfil.html" class="btn active">Perfil</a>
+            <a href="objetivo.html" class="btn">Objetivo</a>
+            <a href="quiz.html" class="btn">Quiz</a>
+            <a href="sobre.html" class="btn">Sobre Nós</a>
+        </div>
+
+        <!-- Exibir nome e foto do usuário no Header -->
+        <div id="userInfo" class="user-info">
+            <img id="userPic" src="" alt="Foto do usuário" class="user-pic">
+            <span id="userName"></span>
         </div>
     </header>
     
-    <section class="perfil">
+    <section class="profile-container">
         <h1>Perfil do Usuário</h1>
-        <img id="profilePicture" alt="Foto do Usuário" class="profile-img" />
+        <img id="profilePicture" alt="Foto do Usuário" class="profile-img">
         <p><strong>Nome:</strong> <span id="fullName"></span></p>
         <p><strong>ID:</strong> <span id="sub"></span></p>
         <p><strong>Nome de Usuário:</strong> <span id="given_name"></span></p>
         <p><strong>Sobrenome:</strong> <span id="family_name"></span></p>
         <p><strong>Email:</strong> <span id="email"></span></p>
         <p><strong>Email Verificado:</strong> <span id="verifiedEmail"></span></p>
+        <button class="logout-button" onclick="logout()">Sair</button>
     </section>
+    
+    <footer>
+        <p>&copy; 2025 O Mais Life. Todos os direitos reservados.</p>
+    </footer>
     
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const userData = JSON.parse(localStorage.getItem("userData"));
             if (userData) {
+                // Atualiza o perfil principal
                 document.getElementById("fullName").textContent = userData.name;
                 document.getElementById("sub").textContent = userData.sub;
                 document.getElementById("given_name").textContent = userData.given_name;
                 document.getElementById("family_name").textContent = userData.family_name;
                 document.getElementById("email").textContent = userData.email;
-                document.getElementById("verifiedEmail").textContent = userData.email_verified;
+                document.getElementById("verifiedEmail").textContent = userData.email_verified ? "Sim" : "Não";
                 document.getElementById("profilePicture").src = userData.picture;
+
+                // Atualiza o cabeçalho
+                document.getElementById("userInfo").style.display = "flex";
+                document.getElementById("userName").textContent = userData.given_name;
+                document.getElementById("userPic").src = userData.picture;
             } else {
                 alert("Nenhum dado de usuário encontrado. Faça login novamente.");
                 window.location.href = "index.html";
             }
         });
-    </script>
-    
-    <footer>
-        <p>&copy; 2025 O Mais Life. Todos os direitos reservados.</p>
-    </footer>
+
+        function logout() {
+            localStorage.removeItem("userData");
+            window.location.href = "index.html";
+        }
+    </script>  
 </body>
 </html>

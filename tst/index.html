@@ -4,21 +4,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>O Mais Life</title>
-    <link rel="stylesheet" href="Style/style.css">
+    
+    <!-- Google Identity Services -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    
+    <!-- Biblioteca para decodificar JWT -->
+    <script src="https://cdn.jsdelivr.net/npm/jwt-decode@3.1.2/build/jwt-decode.min.js"></script>
 
+    <script>
+        function handleCredentialResponse(response) {
+            if (!response.credential) {
+                console.error("Credential is missing.");
+                return;
+            }
+
+            try {
+                const data = jwt_decode(response.credential);
+                console.log(data);
+                localStorage.setItem("userData", JSON.stringify(data));
+                window.location.href = "perfil.html"; // Redireciona para a tela de perfil
+            } catch (error) {
+                console.error("Error decoding JWT:", error);
+            }
+        }
+
+
+        window.onload = function () {
+            google.accounts.id.initialize({
+                client_id: "168139373128-qf583ep0pi75usaur27bj9onjq05qu87.apps.googleusercontent.com",
+                callback: handleCredentialResponse
+            });
+
+            google.accounts.id.renderButton(
+                document.getElementById("buttonDiv"),
+                { 
+                    theme: "outline", 
+                    size: "large", 
+                    type: "standard",
+                    shape: "pill",
+                    text: "continue_with",
+                    logo_alignment: "left"
+                }
+            );
+
+            google.accounts.id.prompt(); // Exibe o One Tap login
+        }
+    </script>
+
+    <link rel="stylesheet" href="Style/style.css">
 </head>
 <body>
     <header>
-        <!--<h2>Doe uma segunda chance a alguém</h2>-->
-        <img src="Logo\logo2.png" alt="Logo" class="Logo">
+        <img src="Logo/logo2.png" alt="Logo" class="Logo">
         
         <div class="menu">
             <a href="index.html" class="btn active">Início</a>
             <a href="sobre.html" class="btn">Sobre Nós</a>
             <a href="objetivo.html" class="btn">Objetivo</a>
             <a href="quiz.html" class="btn">Quiz</a>
+            <a href="perfil.html" class="btn">Perfil</a>
         </div>
+        <div id="buttonDiv"></div>
     </header>
+    
     
     <section class="projeto">
         <h1>Projeto O+ Life</h1>
@@ -42,7 +90,7 @@
         <button class="botao" onclick="irParaObjetivo()">Mostrar mais</button>
         <script>
             function irParaObjetivo() {
-                window.location.href = "objetivo.html"; // Substitua "quiz.html" pelo caminho correto da sua página do quiz.
+                window.location.href = "objetivo.html"; 
             }
         </script>
     </section>
@@ -50,8 +98,18 @@
     <footer>
         <p>&copy; 2025 O Mais Life. Todos os direitos reservados.</p>
     </footer>
+    
     <a href="https://www.unifil.br" target="_blank">
-        <img src="Logo\unifil.png" alt="Logo" class="logo-flutuante">
+        <img src="Logo/unifil.png" alt="Logo" class="logo-flutuante">
     </a>
+
+    <!-- Elementos para exibir os dados do usuário -->
+    <p id="fullName"></p>
+    <p id="sub"></p>
+    <p id="given_name"></p>
+    <p id="family_name"></p>
+    <p id="email"></p>
+    <p id="verifiedEmail"></p>
+    <img id="picture" style="max-width: 100px; border-radius: 50%;" />
 </body>
 </html>

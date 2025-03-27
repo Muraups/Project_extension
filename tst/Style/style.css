@@ -29,7 +29,7 @@ header {
     display: flex;
     justify-content: space-between; /* Separa os elementos */
     align-items: center; /* Centraliza verticalmente */
-    background-color: #fe3434; 
+    background-color: #f84848; 
     color: white;
     padding: 20px;
     font-size: 1.5em;
@@ -79,7 +79,7 @@ header {
 
 /* Seção do projeto */
 .projeto {
-    background-color: #fe3434;
+    background-color: #f84848;
     color: white;
     padding: 30px;
     margin: 20px auto;
@@ -151,7 +151,7 @@ header {
 
 /* Botão */
 .botao {
-    background-color: #fe3434;
+    background-color: #f84848;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -163,7 +163,7 @@ header {
 }
 
 .botao:hover {
-    background-color: #fe3434;
+    background-color: #f84848;
 }
 
 /* Rodapé */

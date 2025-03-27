@@ -2,7 +2,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
 }
 
 body {
@@ -10,6 +9,7 @@ body {
     color: #333;
     line-height: 1.6;
     text-align: center;
+    font-family: "Quicksand", sans-serif;
 }
 
 .detail{   
@@ -119,7 +119,7 @@ footer {
 .sobre-nos h2 {
     font-size: 2em;
     margin-bottom: 20px;
-    color: #f84848;
+    color: #666;
 }
 
 /* Grid para organizar os participantes */

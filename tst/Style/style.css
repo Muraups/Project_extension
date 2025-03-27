@@ -2,7 +2,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
 }
 
 body {
@@ -10,6 +9,7 @@ body {
     color: #333;
     line-height: 1.6;
     text-align: center;
+    font-family: "Quicksand", sans-serif;
 }
 
 .detail{   
@@ -77,6 +77,14 @@ header {
     opacity: 1;
 }
 
+/*imagem maos 1*/
+.imagem1 {
+    width: 100%; 
+    max-width: 700px; 
+    height: auto; 
+    display: block; 
+    margin: 0 auto 20px;
+}
 
 /* Conteúdo principal */
 .conteudo {
@@ -88,21 +96,21 @@ header {
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 
-        /* Fixando o tamanho */
-    width: 100vw; /* Mantém o corpo ocupando a largura da tela */
-    min-width: 800px; /* Define um tamanho mínimo para o corpo */
-    max-width: 1200px; /* Define um tamanho máximo */
+
+    width: 100vw; 
+    min-width: 800px; 
+    max-width: 1200px; 
             
-        /* Fixando a altura da tela */
-    height: 100vh; /* Mantém o body ocupando toda a altura da tela */
-    overflow-x: hidden; /* Impede a rolagem horizontal */
-    margin: 0 auto; /* Centraliza o conteúdo */
+
+    height: 100vh; 
+    overflow-x: hidden; 
+    margin: 0 auto; 
     height: fit-content;
 }
 
 .conteudo h1 {
-    font-size: 2.2em;
-    color: #323232;
+    font-size: 2.4em;
+    color: #757575;
     margin-bottom: 15px;
     margin-top: 30px;
 }
@@ -117,25 +125,26 @@ header {
 }
 
 .conteudo p {
-    font-size: 1.1em;
+    font-size: 1.2em;
     color: #666;
-    margin-top: 10px;
+    margin-top: 20px;
     margin-left: 160px;
     margin-right: 160px;
     text-align: left;
 }
 
-/* Botão */
+/* BotÃ£o */
 .botao {
-    background-color: #f84848;
-    color: white;
+    background-color: #ffeaea;
+    color: #777;
     border: none;
-    padding: 10px 20px;
+    padding: 20px 55px;
     font-size: 1.2em;
-    margin-top: 20px;
-    border-radius: 5px;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    border-radius: 50px;
     cursor: pointer;
-    transition: 0.3s;
+    transition: 1.0s;
 }
 
 .botao:hover {

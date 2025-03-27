@@ -2,7 +2,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
 }
 
 body {
@@ -10,6 +9,7 @@ body {
     color: #333;
     line-height: 1.6;
     text-align: center;
+    font-family: "Quicksand", sans-serif;
 }
 
 .detail{   
@@ -46,29 +46,12 @@ body {
 }
 
 .conteudo h1 {
-    font-size: 2.2em;
-    color: #323232;
+    font-size: 2.4em;
+    color: #757575;
     margin-bottom: 15px;
     margin-top: 30px;
 }
 
-.conteudo h2 {
-    font-size: 1.4em;
-    color: #777;
-    margin-top: 20px;
-    margin-left: 160px;
-    margin-right: 160px;
-    text-align: left;
-}
-
-.conteudo p {
-    font-size: 1.1em;
-    color: #666;
-    margin-top: 10px;
-    margin-left: 160px;
-    margin-right: 160px;
-    text-align: left;
-}
 
 /* Cabeçalho */
 header {
@@ -175,7 +158,8 @@ footer {
 .objetivo h2 {
     font-size: 25px;
     font-weight: bold;
-    color: #333;
+    color: #777;
+    margin-top: 20px;
     margin-left: 10px;
     margin-right: 10px;
 }
@@ -184,6 +168,7 @@ footer {
     font-size: 18px;
     line-height: 1.5;
     color: #666;
+    margin-top: 20px;
     margin-left: 10px;
     margin-right: 10px;
 }

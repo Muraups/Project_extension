@@ -7,7 +7,6 @@ Estilização global
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
 }
 
 body {
@@ -16,6 +15,7 @@ body {
     line-height: 1.6;
     text-align: center;
     margin: 0 auto;
+    font-family: "Quicksand", sans-serif;
 }
 
 .detail{   
@@ -34,8 +34,6 @@ body {
     border: solid 1px black;
     background-color: whitesmoke;
     padding: 30px;
-    margin-top: 200px;
-    margin-bottom: 100px;
     width: 80%;
     height: fit-content;
     border-radius: 10px;
@@ -55,28 +53,20 @@ body {
 
 }
 
-.conteudo h1 {
-    font-size: 2.2em;
-    color: #323232;
-    margin-bottom: 15px;
-    margin-top: 30px;
-}
-
-.conteudo h3 {
-    font-size: 1.4em;
-    color: #ffffff;
-    margin-top: 20px;
-    margin-left: 160px;
-    margin-right: 160px;
-    text-align: center;
-}
-
 .conteudo p {
     font-size: 1.1em;
     color: #ffffff;
     margin-top: 10px;
-    text-align: left;
+    margin-bottom: 10px;
+    text-align: center;
     
+}
+
+.conteudo h2 {
+    font-size: 1.4;
+    color: #666;
+    margin-bottom: 20px;
+    text-align: center; 
 }
 
 /* Cabeçalho */
@@ -139,14 +129,6 @@ header {
 }
 
 
-/* 
-
-Estilização do quiz em si
-
-*/
-
-
-
 .pergunta {
     padding: 1%;
     margin-bottom: 20px;
@@ -204,7 +186,7 @@ Estilização das respostas
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.2s;
-    color: black;
+    color: #666;
     background-color: #f0f0f0;
     min-width: 120px;
 }

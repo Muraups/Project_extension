@@ -4,93 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>O+ Life</title>
-
+    <script src="Scripts/index.js"></script>
     <link rel="stylesheet" href="Style/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
-
-    <!-- Google Identity Services -->
     <script src="https://accounts.google.com/gsi/client" async defer></script>
-    
-    <!-- Biblioteca para decodificar JWT -->
     <script src="https://cdn.jsdelivr.net/npm/jwt-decode@3.1.2/build/jwt-decode.min.js"></script>
-
-    <script>
-        function handleCredentialResponse(response) {
-            if (!response.credential) {
-                console.error("Credential is missing.");
-                return;
-            }
-
-            try {
-                const data = jwt_decode(response.credential);
-                console.log(data);
-                localStorage.setItem("userData", JSON.stringify(data));
-
-                // Esconde o botão de login
-                document.getElementById("buttonDiv").style.display = "none";
-
-                // Exibe os dados do usuário
-                document.getElementById("userInfo").style.display = "flex";
-                document.getElementById("userName").textContent = data.given_name; // Primeiro nome
-                document.getElementById("userPic").src = data.picture;
-            } catch (error) {
-                console.error("Error decoding JWT:", error);
-            }
-        }
-
-        // Verifica se já existe um usuário logado
-        document.addEventListener("DOMContentLoaded", function() {
-            const userData = JSON.parse(localStorage.getItem("userData"));
-            if (userData) {
-                document.getElementById("buttonDiv").style.display = "none";
-                document.getElementById("userInfo").style.display = "flex";
-                document.getElementById("userName").textContent = userData.given_name; // Primeiro nome
-                document.getElementById("userPic").src = userData.picture;
-            }
-        });
-
-
-        window.onload = function () {
-            google.accounts.id.initialize({
-                client_id: "168139373128-qf583ep0pi75usaur27bj9onjq05qu87.apps.googleusercontent.com",
-                callback: handleCredentialResponse
-            });
-
-            google.accounts.id.renderButton(
-                document.getElementById("buttonDiv"),
-                { 
-                    theme: "outline", 
-                    size: "large", 
-                    type: "standard",
-                    shape: "pill",
-                    text: "continue_with",
-                    logo_alignment: "left"
-                }
-            );
-
-            google.accounts.id.prompt(); // Exibe o One Tap login
-        }
-    </script>
-
 </head>
 <body>
     <header>
         <img src="Logo/logo2.png" alt="Logo" class="Logo">
-        
         <div class="menu">
             <a href="index.html" class="btn active">Início</a>
             <a href="objetivo.html" class="btn">Objetivo</a>
             <a href="quiz.html" class="btn">Quiz</a>
             <a href="sobre.html" class="btn">Sobre Nós</a>
         </div>
-        <!-- botão de login -->
         <div id="buttonDiv"></div>
-        
-        <!-- Add o nome e foto no Header Como um botão para a tela de pefil-->
         <a href="perfil.html" id="userInfo" style="display: none; align-items: center; gap: 10px; text-decoration: none; color: inherit;">
             <img id="userPic" src="" alt="Foto do usuário" style="width: 40px; height: 40px; border-radius: 50%;">
             <span id="userName" style="font-weight: bold;"></span>
-        </a>              
+        </a>
     </header>
 
     <img src="Logo/O+img1ok.png" alt="Imagem 1" class="imagem1">
@@ -98,26 +31,44 @@
     <section class="conteudo">
         <h1>A Importância da Doação de Sangue</h1>
         <p>A doação de sangue é um ato voluntário e altruísta que desempenha um papel crucial na manutenção da saúde pública e no salvamento de vidas. Todos os dias, hospitais e clínicas ao redor do mundo utilizam sangue para tratar pacientes em uma variedade de situações, como emergências, cirurgias complexas, tratamento de doenças crônicas e doenças graves, como o câncer.</p>
-
+        
         <h1>Por Que Doar Sangue?</h1>
         <h2>Salvar Vidas</h2>
         <p>Uma única doação de sangue pode salvar até quatro vidas. O sangue doado é separado em diferentes componentes, como plaquetas, plasma e glóbulos vermelhos, que podem ser utilizados de maneira específica para tratar diferentes condições médicas.</p>
-
+        
         <h2>Abastecimento Constante</h2>
         <p>O sangue tem um prazo de validade limitado, variando de 5 a 42 dias dependendo do componente. Portanto, é essencial manter um fluxo constante de doações para garantir que os bancos de sangue tenham sempre o necessário em estoque.</p>
+        <div id="conteudoExpandido" style="display: none;">
+            <h2>Emergências e Cirurgias:</h2>
+            <p>Em situações de emergência, como acidentes de trânsito ou desastres naturais, a disponibilidade imediata de sangue pode ser a diferença entre a vida e a morte. Ter um estoque adequado nos hospitais é fundamental para o tratamento desses casos.</p>
+            
+            <h2>Tratamento de Doenças:</h2>
+            <p>Pacientes com doenças crônicas, como anemia falciforme ou hemofilia, dependem de transfusões regulares para sobreviver. O sangue também é essencial para o tratamento de pacientes submetidos à quimioterapia, que pode diminuir drasticamente a contagem de células sanguíneas.</p>
+            
+            <h1>Mitos e Curiosidades Sobre a Doação de Sangue</h1>
 
-        <h2>Emergências e Cirurgias:</h2>
-        <p>Em situações de emergência, como acidentes de trânsito ou desastres naturais, a disponibilidade imediata de sangue pode ser a diferença entre a vida e a morte. Ter um estoque adequado nos hospitais é fundamental para o tratamento desses casos.</p>
-
-        <h2>Tratamento de Doenças:</h2>
-        <p>Pacientes com doenças crônicas, como anemia falciforme ou hemofilia, dependem de transfusões regulares para sobreviver. O sangue também é essencial para o tratamento de pacientes submetidos à quimioterapia, que pode diminuir drasticamente a contagem de células sanguíneas.</p>
+            <h2>Mitos Comuns:</h2>
+            <ul>
+                <li>"Doar sangue dói muito.": A dor é mínima, semelhante a uma picada de mosquito.</li>
+                <li>"Doar sangue engorda ou emagrece.": A doação não causa alterações de peso.</li>
+                <li>"Pessoas com tatuagens não podem doar sangue.": Após 12 meses da tatuagem, a doação é permitida.</li>
+                <li>"Doar sangue enfraquece.": O corpo repõe o sangue doado em poucas horas.</li>
+            </ul>
         
-        <button class="botao" onclick="irParaObjetivo()">Mostrar mais</button>
-        <script>
-            function irParaObjetivo() {
-                window.location.href = "objetivo.html"; 
-            }
-        </script>
+            <h2>Curiosidades:</h2>
+            <ul>
+                <li>O tipo sanguíneo O negativo é considerado doador universal.</li>
+                <li>Uma pessoa adulta tem, em média, 5 litros de sangue.</li>
+                <li>A doação de sangue pode ajudar a identificar problemas de saúde no doador.</li>
+            </ul>
+        
+            
+            <h1>Locais de Doação:</h1>
+            <p>Existem diversos hemocentros e hospitais que realizam a coleta de sangue. Para encontrar o local mais próximo de você, você pode acessar o site do Ministério da Saúde ou entrar em contato com a Secretaria de Saúde do seu estado.</p>
+            
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3663.684554411375!2d-51.130110025029886!3d-23.327201253030655!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94eb43a356877d59%3A0x8ba75bb9a80734c9!2sR.%20Cl%C3%A1udio%20Donizete%20Cavalieri%2C%20156%20-%20Jardim%20Taruma%2C%20Londrina%20-%20PR%2C%2086038-670!5e0!3m2!1spt-BR!2sbr!4v1743226968461!5m2!1spt-BR!2sbr" width="900" height="450" style="border:0; margin: 50px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>        </div>
+        
+        <button class="botao" onclick="alternarConteudo()">Mostrar mais</button>
     </section>
 
     <footer>
@@ -128,7 +79,6 @@
         <img src="Logo/unifil.png" alt="Logo" class="logo-flutuante">
     </a>
 
-    <!-- Elementos para exibir os dados do usuário -->
     <p id="fullName"></p>
     <p id="sub"></p>
     <p id="given_name"></p>

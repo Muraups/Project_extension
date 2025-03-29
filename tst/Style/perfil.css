@@ -128,3 +128,19 @@ footer {
         width: 90%;
     }
 }
+
+
+/* OCULTANDO O CAMPOS NA TELA DE PERFIL */
+#sub, #family_name {
+    display: none;
+}
+
+.ocult {
+    display: none;
+}
+
+/*Bolinha do verificado Email*/
+#emailVerificationStatus {
+    font-size: 0.5em; 
+    vertical-align: middle; 
+}

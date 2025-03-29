@@ -17,7 +17,6 @@
             <a href="sobre.html" class="btn">Sobre Nós</a>
         </div>
 
-        <!-- Exibir nome e foto do usuário no Header -->
         <div id="userInfo" class="user-info">
             <img id="userPic" src="" alt="Foto do usuário" class="user-pic">
             <span id="userName"></span>
@@ -27,12 +26,12 @@
     <section class="profile-container">
         <h1>Perfil do Usuário</h1>
         <img id="profilePicture" alt="Foto do Usuário" class="profile-img">
-        <p><strong>Nome:</strong> <span id="fullName"></span></p>
-        <p><strong>ID:</strong> <span id="sub"></span></p>
         <p><strong>Nome de Usuário:</strong> <span id="given_name"></span></p>
-        <p><strong>Sobrenome:</strong> <span id="family_name"></span></p>
-        <p><strong>Email:</strong> <span id="email"></span></p>
-        <p><strong>Email Verificado:</strong> <span id="verifiedEmail"></span></p>
+        <p><strong>Nome completo:</strong> <span id="fullName"></span></p>
+        <p class="ocult"><strong>ID:</strong> <span id="sub"></span></p>
+        <p class="ocult"><strong>Sobrenome:</strong> <span id="family_name"></span></p>
+        <p><strong>Email:</strong> <span id="email"></span> <span id="emailVerificationStatus"></span></p>
+        <p><strong>É doador?:</strong> <span id="isDonor"></span></p> 
         <button class="logout-button" onclick="logout()">Sair</button>
     </section>
     
@@ -50,13 +49,31 @@
                 document.getElementById("given_name").textContent = userData.given_name;
                 document.getElementById("family_name").textContent = userData.family_name;
                 document.getElementById("email").textContent = userData.email;
-                document.getElementById("verifiedEmail").textContent = userData.email_verified ? "Sim" : "Não";
                 document.getElementById("profilePicture").src = userData.picture;
 
                 // Atualiza o cabeçalho
                 document.getElementById("userInfo").style.display = "flex";
                 document.getElementById("userName").textContent = userData.given_name;
                 document.getElementById("userPic").src = userData.picture;
+
+                 // Recupera dados extras do usuário (nome editado e status de doador)
+                const savedData = JSON.parse(localStorage.getItem(`userExtra_${userData.sub}`));
+                if (savedData) {
+                    document.getElementById("given_name").textContent = savedData.username || userData.given_name;
+                    document.getElementById("isDonor").textContent = savedData.isDonor || "Não informado";
+                } else {
+                    document.getElementById("isDonor").textContent = "Não informado";
+                }
+
+                // Verifica o status do email
+                if (userData.email_verified) {
+                    document.getElementById("emailVerificationStatus").textContent = "🟢";
+                    document.getElementById("emailVerificationStatus").title = "Email Verificado.";
+                } else {
+                    document.getElementById("emailVerificationStatus").textContent = "";
+                    document.getElementById("emailVerificationStatus").title = "Email Não Verificado.";
+                }
+
             } else {
                 alert("Nenhum dado de usuário encontrado. Faça login novamente.");
                 window.location.href = "index.html";
@@ -67,6 +84,6 @@
             localStorage.removeItem("userData");
             window.location.href = "index.html";
         }
-    </script>  
+    </script>    
 </body>
 </html>

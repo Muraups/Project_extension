@@ -133,6 +133,15 @@ header {
     text-align: left;
 }
 
+.conteudo li{
+    font-size: 1.2em;
+    color: #666;
+    margin-top: 20px;
+    margin-left: 160px;
+    margin-right: 160px;
+    text-align: left;
+}
+
 /* BotÃ£o */
 .botao {
     background-color: #ffeaea;

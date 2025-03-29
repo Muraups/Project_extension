@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-      "predeploy": "rm -rf dist && mkdir dist && cp -r * dist", 
-      "deploy": "gh-pages -d dist"
+    "predeploy": "rmdir /s /q dist && mkdir dist && xcopy /E /I * dist",
+    "deploy": "gh-pages -d dist"
   },
   "keywords": [],
   "author": "",

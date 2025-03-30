@@ -6,75 +6,10 @@
     <title>O Mais Life</title>
     <link rel="stylesheet" href="Style/objetivo.css">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
-
-    <!-- Google Identity Services -->
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
-    
-    <!-- Biblioteca para decodificar JWT -->
-    <script src="https://cdn.jsdelivr.net/npm/jwt-decode@3.1.2/build/jwt-decode.min.js"></script>
-
-    <script>
-        function handleCredentialResponse(response) {
-            if (!response.credential) {
-                console.error("Credential is missing.");
-                return;
-            }
-
-            try {
-                const data = jwt_decode(response.credential);
-                console.log(data);
-                localStorage.setItem("userData", JSON.stringify(data));
-
-                // Esconde o botão de login
-                document.getElementById("buttonDiv").style.display = "none";
-
-                // Exibe os dados do usuário
-                document.getElementById("userInfo").style.display = "flex";
-                document.getElementById("userName").textContent = data.given_name; // Primeiro nome
-                document.getElementById("userPic").src = data.picture;
-            } catch (error) {
-                console.error("Error decoding JWT:", error);
-            }
-        }
-
-        // Verifica se já existe um usuário logado
-        document.addEventListener("DOMContentLoaded", function() {
-            const userData = JSON.parse(localStorage.getItem("userData"));
-            if (userData) {
-                document.getElementById("buttonDiv").style.display = "none";
-                document.getElementById("userInfo").style.display = "flex";
-                document.getElementById("userName").textContent = userData.given_name; // Primeiro nome
-                document.getElementById("userPic").src = userData.picture;
-            }
-        });
-
-
-        window.onload = function () {
-            google.accounts.id.initialize({
-                client_id: "168139373128-qf583ep0pi75usaur27bj9onjq05qu87.apps.googleusercontent.com",
-                callback: handleCredentialResponse
-            });
-
-            google.accounts.id.renderButton(
-                document.getElementById("buttonDiv"),
-                { 
-                    theme: "outline", 
-                    size: "large", 
-                    type: "standard",
-                    shape: "pill",
-                    text: "continue_with",
-                    logo_alignment: "left"
-                }
-            );
-
-            google.accounts.id.prompt(); // Exibe o One Tap login
-        }
-    </script>
     
 </head>
 
 <header>
-
     <!--<h2>Doe uma segunda chance a alguém</h2>-->
     <img src="Logo\logo2.png" alt="Logo" class="Logo">
     
@@ -84,46 +19,58 @@
         <a href="quiz.html" class="btn">Quiz</a>
         <a href="sobre.html" class="btn">Sobre Nós</a>
     </div>
-    <!-- botão de login -->
-    <div id="buttonDiv"></div>
-
+    
     <!-- Add o nome e foto no Header Como um botão para a tela de pefil-->
     <a href="perfil.html" id="userInfo" style="display: none; align-items: center; gap: 10px; text-decoration: none; color: inherit;">
         <img id="userPic" src="" alt="Foto do usuário" style="width: 40px; height: 40px; border-radius: 50%;">
         <span id="userName" style="font-weight: bold;"></span>
     </a>
-
 </header>
 
 <body>
 
+    <img src="Logo/target.png" alt="Ilustração objetivos" class="banner-objetivo">
 
     <section class="conteudo">
-        <h1>O +Life tem como objetivo :</h1>
-    
+        <h1> Objetivos do projeto: </h1>
+
+        <p class="importancia-doacao">
+            O O+Life surgiu da iniciativa de um grupo de estudantes dedicados a encontrar soluções para desafios importantes da nossa sociedade.
+            Observando a constante necessidade de doações de sangue e a importância da conscientização para salvar vidas, idealizamos esta plataforma
+            como um ponto de encontro entre a informação clara e acessível e a vontade de fazer o bem. Nosso objetivo é utilizar a tecnologia para
+            facilitar a jornada do doador, desde o acesso a locais de doação até o esclarecimento de dúvidas, contribuindo assim para aumentar o número
+            de doações e fortalecer a cultura de solidariedade em nossa comunidade.
+        </p>
+
+        <p class="importancia-doacao">
+            Nosso projeto nasceu com o objetivo de facilitar o acesso à informação sobre a doação, incentivar mais pessoas a se tornarem doadoras e 
+            apoiar as campanhas que fazem a diferença. Lembre-se, muitas pessoas dependem de transfusões para sobreviver, e a sua doação, além de ajudar
+            até quatro pacientes, fortalece a corrente de vida que o O+Life busca promover. Doe sangue, informe-se e faça parte desta causa!
+        </p>
+
         <div class="objetivos">
             <div class="objetivo">
-                <h2>Facilitar acessos às informações</h2>
+                <h2> <img src="Logo/informacao.png" alt="Ícone de informação" class="banner-informacao"> Facilitar acessos às informações </h2>
                 <p>Proporcionar maneiras fáceis e práticas de localizar pontos de coletas de sangue mais perto do usuário.</p>
             </div>
     
             <div class="objetivo">
-                <h2>Incentivo à doação de sangue</h2>
+                <h2> <img src="Logo/coracao.png" alt="Ícone de coração" class="banner-coracao"> Incentivo à doação de sangue</h2>
                 <p>Promover a conscientização sobre a importância da doação de sangue.</p>
             </div>
     
             <div class="objetivo">
-                <h2>Apoiar campanhas de doação</h2>
+                <h2> <img src="Logo/megafone.png " alt="Ícone de megafone" class="banner-megafone"> Apoiar campanhas de doação</h2>
                 <p>Colaborar com campanhas locais e nacionais, destacando a necessidade constante de doadores e como cada doação pode salvar vidas.</p>
             </div>
     
             <div class="objetivo">
-                <h2>Educar a população</h2>
+                <h2> <img src="Logo/educar.png" alt="Ícone de educar" class="banner-educar"> Educar a população</h2>
                 <p>Fornecer informações educativas sobre o processo de doação de sangue, quem pode doar e os benefícios tanto para o doador quanto para o receptor.</p>
             </div>
     
             <div class="objetivo">
-                <h2>Promover a transparência e confiabilidade</h2>
+                <h2> <img src="Logo/escudo.png" alt="Ícone de escudo" class="banner-escudo"> Promover a transparência e confiabilidade</h2>
                 <p>Garantir que as informações fornecidas sejam precisas, atualizadas e provenientes de fontes confiáveis.</p>
             </div>
         </div>

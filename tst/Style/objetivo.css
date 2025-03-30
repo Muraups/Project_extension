@@ -137,6 +137,43 @@ footer {
     opacity: 1; /* Deixa o logo 100% visível ao passar o mouse */
 }
 
+
+.banner-objetivo {
+    width: 100%; 
+    max-width: 200px; 
+    height: auto;
+    margin: 0 auto 20px;
+    margin-top: 30px;
+}
+
+.objetivo img {
+    width: 40px; /* Define um tamanho fixo para os ícones */
+    height: auto;
+    margin-right: 10px; /* Espaçamento entre o ícone e o texto */
+    vertical-align: middle; /* Alinha verticalmente com o título */
+}
+
+.banner-informacao {
+    filter: brightness(1.1); /* Aumenta o brilho para destacar */
+}
+
+.banner-coracao {
+    filter: hue-rotate(10deg); /* Ajuste sutil na tonalidade */
+}
+
+.banner-megafone {
+    filter: contrast(1.2); /* Aumenta o contraste para melhor visibilidade */
+}
+
+.banner-educar {
+    filter: grayscale(20%); /* Reduz ligeiramente a saturação para um efeito profissional */
+}
+
+.banner-escudo {
+    filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.2)); /* Adiciona uma sombra suave */
+}
+
+
 .objetivos {
     display: flex;
     flex-wrap: wrap;
@@ -146,13 +183,25 @@ footer {
     padding: 20px;
 }
 
+.importancia-doacao {
+    font-size: 1.4em;
+    color: #777;
+    margin-top: 20px;
+    margin-left: 160px;
+    margin-right: 160px;
+    margin-top: 30px;
+    text-align: justify;
+}
+
 .objetivo {
     flex: 1 1 45%; /* Define dois itens por linha */
     min-width: 300px;
-    background-color: transparent; /* Sem fundo */
     box-shadow: none; /* Sem sombra */
     padding: 10px;
     text-align: left; /* Alinhar à esquerda */
+    margin-left: 30px;
+    margin-right: 10px;
+    margin-top: 40px;
 }
 
 .objetivo h2 {

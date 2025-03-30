@@ -144,7 +144,7 @@ footer {
 }
 
 .participant:hover {
-    transform: scale(1.125); /* Aumenta o tamanho do elemento */
+    transform: scale(1.05); /* Aumenta o tamanho do elemento */
 }
 .participant img {
     width: 200px;

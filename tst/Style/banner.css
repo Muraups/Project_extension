@@ -1,0 +1,39 @@
+.banner-rotativo {
+    position: relative;
+    width: 100%;
+    height: 300px; /* Ajuste a altura conforme necessário */
+    overflow: hidden;
+}
+
+.banner-imagens {
+    display: flex;
+    width: 300%; /* Ajuste a largura conforme o número de imagens */
+    transition: transform 1s ease-in-out;
+}
+
+.banner-imagem {
+    width: 33.33%; /* Ajuste a largura conforme o número de imagens */
+    height: 100%;
+    object-fit: cover;
+}
+
+.banner-indicadores {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.indicador {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #ccc;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.indicador.ativo {
+    background-color: #333;
+}

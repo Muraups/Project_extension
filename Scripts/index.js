@@ -16,8 +16,19 @@ function handleCredentialResponse(response) {
         document.getElementById("userInfo").style.display = "flex";
         document.getElementById("userName").textContent = data.given_name; // Primeiro nome
         document.getElementById("userPic").src = data.picture;
+
+        // Exibe os locais de doação
+        exibirLocaisDoacao(); // Chama a função para exibir os locais de doação
     } catch (error) {
         console.error("Error decoding JWT:", error);
+    }
+}
+
+// Função para exibir os locais de doação
+function exibirLocaisDoacao() {
+    const locaisDoacaoLondrina = document.getElementById('locaisDoacaoLondrina');
+    if (locaisDoacaoLondrina) {
+        locaisDoacaoLondrina.style.display = 'block';
     }
 }
 
@@ -29,6 +40,9 @@ document.addEventListener("DOMContentLoaded", function() {
         document.getElementById("userInfo").style.display = "flex";
         document.getElementById("userName").textContent = userData.given_name; // Primeiro nome
         document.getElementById("userPic").src = userData.picture;
+
+        // Exibe os locais de doação
+        exibirLocaisDoacao(); // Chama a função para exibir os locais de doação
     }
 });
 

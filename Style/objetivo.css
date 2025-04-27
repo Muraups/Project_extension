@@ -1,3 +1,4 @@
+/* OBJETIVO.CSS */
 * {
     margin: 0;
     padding: 0;
@@ -12,18 +13,16 @@ body {
     font-family: "Quicksand", sans-serif;
 }
 
-.detail{   
-    /* Fixando o tamanho */
-    width: 100vw; /* Mantém o corpo ocupando a largura da tela */
-    min-width: 800px; /* Define um tamanho mínimo para o corpo */
-    max-width: 1200px; /* Define um tamanho máximo */
-        
-    /* Fixando a altura da tela */
-    height: 100vh; /* Mantém o body ocupando toda a altura da tela */
-    overflow-x: hidden; /* Impede a rolagem horizontal */
-    margin: 0 auto; /* Centraliza o conteúdo */
+.detail{
+    width: 100vw;
+    min-width: 800px;
+    max-width: 1200px;
+    height: auto;
+    overflow-x: hidden;
+    margin: 0 auto;
 }
-/* Conteúdo principal */
+
+/* Estilos para telas maiores (desktop) */
 .conteudo {
     background-color: white;
     color: #333;
@@ -32,17 +31,10 @@ body {
     width: 80%;
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-
-        /* Fixando o tamanho */
-    width: 100vw; /* Mantém o corpo ocupando a largura da tela */
-    min-width: 800px; /* Define um tamanho mínimo para o corpo */
-    max-width: 1200px; /* Define um tamanho máximo */
-            
-        /* Fixando a altura da tela */
-    height: 100vh; /* Mantém o body ocupando toda a altura da tela */
-    overflow-x: hidden; /* Impede a rolagem horizontal */
-    margin: 20px auto; /* Centraliza o conteúdo */
+    min-width: 800px;
+    max-width: 1200px;
     height: fit-content;
+    overflow-x: hidden;
 }
 
 .conteudo h1 {
@@ -52,23 +44,26 @@ body {
     margin-top: 30px;
 }
 
-
-/* Cabeçalho */
+/* Cabeçalho para telas maiores */
 header {
     display: flex;
-    justify-content: space-between; /* Separa os elementos */
-    align-items: center; /* Centraliza verticalmente */
+    justify-content: space-between;
+    align-items: center;
     background-color: #f84848;
     color: white;
     padding: 20px;
     font-size: 1.5em;
     font-weight: bold;
-    margin-bottom: 10px;
+}
+
+.Logo {
+    width: 200px;
+    height: auto;
 }
 
 .menu {
     display: flex;
-    gap: 15px; /* Espaço entre os botões */
+    gap: 15px;
 }
 
 .btn {
@@ -84,21 +79,19 @@ header {
     transition: color 0.4s ease-in-out;
 }
 
-/* Criando o sublinhado invisível, já com largura total */
 .btn::after {
     content: "";
     position: absolute;
     left: 50%;
-    bottom: -1px; /* Fica logo abaixo do botão */
+    bottom: -1px;
     width: 80%;
     height: 0.8px;
     background-color: #ffffff;
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
-    transform: translateX(-50%); /* Centraliza a linha */
+    transform: translateX(-50%);
 }
 
-/* Fazendo o sublinhado aparecer suavemente */
 .btn:hover::after {
     opacity: 1;
 }
@@ -107,72 +100,100 @@ header {
     opacity: 1;
 }
 
-
-.botao:hover {
-    background-color: #ff4f4f;
+#buttonDiv {
+    /* Estilos para o botão do Google em telas maiores */
 }
 
-/* Rodapé */
-footer {
-    text-align: center;
-    padding: 20px;
-    margin-top: 30px;
-    font-size: 0.9em;
-    color: #5c5c5c;
+#userInfo {
+    display: none;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: inherit;
 }
 
-.logo-flutuante {
-    position: fixed; /* Mantém o logo fixo na tela */
-    top: 50%; /* Centraliza verticalmente */
-    right: 20px; /* Afasta do lado direito */
-    transform: translateY(-50%); /* Ajusta a posição vertical */
-    width: 80px; /* Define o tamanho do logo */
-    height: auto; /* Mantém a proporção */
-    z-index: 1000; /* Garante que o logo fique sobre os outros elementos */
-    opacity: 0.8; /* Torna o logo um pouco transparente */
-    transition: opacity 0.3s; /* Efeito suave ao passar o mouse */
+#userPic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
 }
 
-.logo-flutuante:hover {
-    opacity: 1; /* Deixa o logo 100% visível ao passar o mouse */
+#userName {
+    font-weight: bold;
 }
 
+/* Menu lateral - inicialmente oculto */
+.side-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: #f84848;
+    padding-top: 60px;
+    transition: left 0.3s ease-in-out;
+    z-index: 1001;
+    overflow-y: auto;
+}
+
+.side-menu.open {
+    left: 0;
+}
+
+.side-menu-btn {
+    display: block;
+    color: #ffffff;
+    padding: 15px 20px;
+    text-decoration: none;
+    font-size: 1.1em;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+.side-menu-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Ícone do menu - oculto por padrão em telas maiores */
+.menu-icon {
+    display: none;
+}
 
 .banner-objetivo {
-    width: 100%; 
-    max-width: 200px; 
+    width: 100%;
+    max-width: 200px;
     height: auto;
     margin: 0 auto 20px;
     margin-top: 30px;
 }
 
 .objetivo img {
-    width: 40px; /* Define um tamanho fixo para os ícones */
+    width: 40px;
     height: auto;
-    margin-right: 10px; /* Espaçamento entre o ícone e o texto */
-    vertical-align: middle; /* Alinha verticalmente com o título */
+    margin-right: 10px;
+    vertical-align: middle;
 }
 
 .banner-informacao {
-    filter: brightness(1.1); /* Aumenta o brilho para destacar */
+    filter: brightness(1.1);
 }
 
 .banner-coracao {
-    filter: hue-rotate(10deg); /* Ajuste sutil na tonalidade */
+    filter: hue-rotate(10deg);
 }
 
 .banner-megafone {
-    filter: contrast(1.2); /* Aumenta o contraste para melhor visibilidade */
+    filter: contrast(1.2);
 }
 
 .banner-educar {
-    filter: grayscale(20%); /* Reduz ligeiramente a saturação para um efeito profissional */
+    filter: grayscale(20%);
 }
 
 .banner-escudo {
-    filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.2)); /* Adiciona uma sombra suave */
+    filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.2));
 }
-
 
 .objetivos {
     display: flex;
@@ -194,11 +215,11 @@ footer {
 }
 
 .objetivo {
-    flex: 1 1 45%; /* Define dois itens por linha */
+    flex: 1 1 45%;
     min-width: 300px;
-    box-shadow: none; /* Sem sombra */
+    box-shadow: none;
     padding: 10px;
-    text-align: left; /* Alinhar à esquerda */
+    text-align: left;
     margin-left: 30px;
     margin-right: 10px;
     margin-top: 40px;
@@ -222,7 +243,163 @@ footer {
     margin-right: 10px;
 }
 
-.Logo{
-    width: 200px;
+/* Logo Flutuante */
+.logo-flutuante {
+    position: fixed;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    width: 80px;
     height: auto;
+    z-index: 1000;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+}
+
+.logo-flutuante:hover {
+    opacity: 1;
+}
+
+/* Estilos responsivos para telas com largura máxima de 768px (tablets e alguns celulares) */
+@media (max-width: 768px) {
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px;
+    }
+
+    .Logo {
+        width: 120px;
+        height: auto;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 2.5%;
+    }
+
+    .menu {
+        display: none; /* Oculta o menu principal em telas menores */
+    }
+
+    .menu-icon {
+        display: block; /* Mostra o ícone do menu em telas menores */
+        font-size: 1.5em;
+        color: #ffffff;
+        cursor: pointer;
+        order: -1;
+    }
+
+    .header-right {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        order: 1;
+    }
+
+    /* Mostra o menu lateral APENAS em telas menores */
+    .side-menu {
+        display: block;
+    }
+
+    .conteudo {
+        width: 95%; /* Aumenta a largura para ocupar mais espaço */
+        margin: 15px auto; /* Reduz um pouco as margens */
+        padding: 20px; /* Reduz um pouco o espaçamento interno */
+        min-width: auto; /* Permite que a largura se ajuste */
+        max-width: none; /* Remove a largura máxima */
+    }
+
+    .conteudo h1 {
+        font-size: 2em; /* Reduz o tamanho da fonte do título */
+    }
+
+    .importancia-doacao {
+        font-size: 1.2em;
+        margin-left: 20px;
+        margin-right: 20px;
+        text-align: left;
+    }
+
+    .objetivos {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .objetivo {
+        flex: 1 1 auto;
+        min-width: auto;
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .objetivo h2 {
+        font-size: 1.5em;
+        text-align: center;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .objetivo p {
+        font-size: 1.1em;
+        text-align: left;
+    }
+
+    /* Ajuste da Logo Flutuante em telas menores */
+    .logo-flutuante {
+        bottom: 20px; /* Tentando um valor menor para bottom */
+        right: 10px;
+        width: 50px;
+        opacity: 0.7;
+        top: 50%;
+        transform: translateY(0);
+    }
+}
+
+/* Estilos responsivos para telas com largura máxima de 480px (celulares menores) */
+@media (max-width: 480px) {
+    .Logo {
+        width: 100px;
+        top: 2.5%;
+    }
+
+    .menu-icon {
+        font-size: 1.3em;
+    }
+
+    .header-right {
+        gap: 10px;
+    }
+
+    .side-menu {
+        width: 200px;
+    }
+
+    .side-menu-btn {
+        font-size: 1em;
+        padding: 12px 15px;
+    }
+
+    .importancia-doacao {
+        font-size: 1em;
+    }
+
+    .objetivo h2 {
+        font-size: 1.3em;
+    }
+
+    .objetivo p {
+        font-size: 1em;
+    }
+
+    /* Ajuste adicional da Logo Flutuante em telas ainda menores */
+    .logo-flutuante {
+        bottom: 15px; /* Tentando um valor ainda menor para bottom */
+        right: 10px;
+        width: 40px;
+        top: 50%;
+        opacity: 0.6;
+    }
 }

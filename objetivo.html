@@ -9,25 +9,35 @@
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
     <script src="https://accounts.google.com/gsi/client" async defer></script>
     <script src="https://cdn.jsdelivr.net/npm/jwt-decode@3.1.2/build/jwt-decode.min.js"></script>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-
-<header>
-    <img src="Logo\logo2.png" alt="Logo" class="Logo">
-    <div class="menu">
-        <a href="index.html" class="btn">Início</a>
-        <a href="objetivo.html" class="btn active">Objetivo</a>
-        <a href="quiz.html" class="btn">Quiz</a>
-        <a href="sobre.html" class="btn">Sobre Nós</a>
-    </div>
-    <div id="buttonDiv"></div>
-    <a href="perfil.html" id="userInfo" style="display: none; align-items: center; gap: 10px; text-decoration: none; color: inherit;">
-        <img id="userPic" src="" alt="Foto do usuário" style="width: 40px; height: 40px; border-radius: 50%;">
-        <span id="userName" style="font-weight: bold;"></span>
-    </a>
-</header>
-
 <body>
+    <header>
+        <div class="menu-icon">
+            <i class="fas fa-bars menu-icon" onclick="toggleMenu()"></i>
+        </div>
+        <a href="index.html">
+            <img src="Logo/logo2.png" alt="Logo" class="Logo">
+        </a>
+        <div class="menu">
+            <a href="index.html" class="btn">Início</a>
+            <a href="objetivo.html" class="btn active">Objetivo</a>
+            <a href="quiz.html" class="btn">Quiz</a>
+            <a href="sobre.html" class="btn">Sobre Nós</a>
+        </div>
+        <div id="buttonDiv"></div>
+        <a href="perfil.html" id="userInfo" style="display: none; align-items: center; gap: 10px; text-decoration: none; color: inherit;">
+            <img id="userPic" src="" alt="Foto do usuário" style="width: 40px; height: 40px; border-radius: 50%;">
+            <span id="userName" style="font-weight: bold;"></span>
+        </a>
+    </header>
+
+    <div class="side-menu" id="sideMenu">
+        <a href="index.html" class="side-menu-btn">Início</a>
+        <a href="objetivo.html" class="side-menu-btn active">Objetivo</a>
+        <a href="quiz.html" class="side-menu-btn">Quiz</a>
+        <a href="sobre.html" class="side-menu-btn">Sobre Nós</a>
+    </div>
 
     <img src="Logo/target.png" alt="Ilustração objetivos" class="banner-objetivo">
 
@@ -43,7 +53,7 @@
         </p>
 
         <p class="importancia-doacao">
-            Nosso projeto nasceu com o objetivo de facilitar o acesso à informação sobre a doação, incentivar mais pessoas a se tornarem doadoras e 
+            Nosso projeto nasceu com o objetivo de facilitar o acesso à informação sobre a doação, incentivar mais pessoas a se tornarem doadoras e
             apoiar as campanhas que fazem a diferença. Lembre-se, muitas pessoas dependem de transfusões para sobreviver, e a sua doação, além de ajudar
             até quatro pacientes, fortalece a corrente de vida que o O+Life busca promover. Doe sangue, informe-se e faça parte desta causa!
         </p>
@@ -53,35 +63,35 @@
                 <h2> <img src="Logo/informacao.png" alt="Ícone de informação" class="banner-informacao"> Facilitar acessos às informações </h2>
                 <p>Proporcionar maneiras fáceis e práticas de localizar pontos de coletas de sangue mais perto do usuário.</p>
             </div>
-    
+
             <div class="objetivo">
                 <h2> <img src="Logo/coracao.png" alt="Ícone de coração" class="banner-coracao"> Incentivo à doação de sangue</h2>
                 <p>Promover a conscientização sobre a importância da doação de sangue.</p>
             </div>
-    
+
             <div class="objetivo">
                 <h2> <img src="Logo/megafone.png " alt="Ícone de megafone" class="banner-megafone"> Apoiar campanhas de doação</h2>
                 <p>Colaborar com campanhas locais e nacionais, destacando a necessidade constante de doadores e como cada doação pode salvar vidas.</p>
             </div>
-    
+
             <div class="objetivo">
                 <h2> <img src="Logo/educar.png" alt="Ícone de educar" class="banner-educar"> Educar a população</h2>
                 <p>Fornecer informações educativas sobre o processo de doação de sangue, quem pode doar e os benefícios tanto para o doador quanto para o receptor.</p>
             </div>
-    
+
             <div class="objetivo">
                 <h2> <img src="Logo/escudo.png" alt="Ícone de escudo" class="banner-escudo"> Promover a transparência e confiabilidade</h2>
                 <p>Garantir que as informações fornecidas sejam precisas, atualizadas e provenientes de fontes confiáveis.</p>
             </div>
         </div>
     </section>
-    
+
     <footer>
         <p>&copy;O+ Life. Todos os direitos reservados.</p>
     </footer>
 
     <a href="https://www.unifil.br" target="_blank">
-        <img src="Logo\unifil.png" alt="Logo" class="logo-flutuante">
+        <img src="Logo/unifil.png" alt="Logo" class="logo-flutuante">
     </a>
 
     <p id="fullName"></p>
@@ -91,5 +101,12 @@
     <p id="email"></p>
     <p id="verifiedEmail"></p>
     <img id="picture" style="max-width: 100px; border-radius: 50%;" />
+
+    <script>
+        function toggleMenu() {
+            const sideMenu = document.getElementById('sideMenu');
+            sideMenu.classList.toggle('open');
+        }
+    </script>
 </body>
 </html>

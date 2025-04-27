@@ -48,15 +48,16 @@ document.addEventListener("DOMContentLoaded", function() {
 
 window.onload = function () {
     google.accounts.id.initialize({
-        client_id: "168139373128-qf583ep0pi75usaur27bj9onjq05qu87.apps.googleusercontent.com",
+        client_id: "SEU_CLIENT_ID.apps.googleusercontent.com", // Substitua pelo seu Client ID
         callback: handleCredentialResponse
     });
 
-    // Adicionando um pequeno atraso antes de renderizar o botão
-    setTimeout(function() {
-        google.accounts.id.renderButton(
-            document.getElementById("buttonDiv"),
-            {
+    function renderGoogleButton() {
+        const buttonDiv = document.getElementById("buttonDiv");
+        const isMobile = window.innerWidth <= 768; // Define o limite para telas menores
+
+        const buttonConfig = isMobile
+            ? { // Configuração para telas menores (ícone)
                 theme: "outline",
                 type: "icon",
                 shape: "circle",
@@ -65,11 +66,27 @@ window.onload = function () {
                 width: "48px",
                 height: "48px"
             }
-        );
+            : { // Configuração para desktops (formato raiz)
+                theme: "outline",
+                size: "large",
+                type: "standard",
+                shape: "pill",
+                text: "continue_with",
+                logo_alignment: "left"
+            };
 
+        google.accounts.id.renderButton(buttonDiv, buttonConfig);
         google.accounts.id.prompt(); // Exibe o One Tap login
-    }, 200); // 200 milissegundos de atraso (tente ajustar se necessário)
-}
+    }
+
+    // Renderiza o botão inicialmente
+    renderGoogleButton();
+
+    // Adiciona um listener para redimensionamento da tela para re-renderizar se necessário
+    window.addEventListener('resize', renderGoogleButton);
+};
+
+// ... (resto do seu código JavaScript: handleCredentialResponse, exibirLocaisDoacao, etc.) ...
 
 
 function alternarConteudo() {

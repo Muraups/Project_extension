@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 window.onload = function () {
     google.accounts.id.initialize({
-        client_id: "SEU_CLIENT_ID.apps.googleusercontent.com", // Substitua pelo seu Client ID
+        client_id: "168139373128-qf583ep0pi75usaur27bj9onjq05qu87.apps.googleusercontent.com",
         callback: handleCredentialResponse
     });
 

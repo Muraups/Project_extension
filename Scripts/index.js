@@ -56,10 +56,8 @@ window.onload = function () {
         document.getElementById("buttonDiv"),
         { 
             theme: "outline", 
-            size: "large", 
             type: "standard",
             shape: "pill",
-            text: "continue_with",
             logo_alignment: "left"
         }
     );

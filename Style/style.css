@@ -12,33 +12,35 @@ body {
     font-family: "Quicksand", sans-serif;
 }
 
-.detail{   
-    /* Fixando o tamanho */
-    width: 100vw; /* Mantém o corpo ocupando a largura da tela */
-    min-width: 800px; /* Define um tamanho mínimo para o corpo */
-    max-width: 1200px; /* Define um tamanho máximo */
-        
-    /* Fixando a altura da tela */
-    height: 100vh; /* Mantém o body ocupando toda a altura da tela */
-    overflow-x: hidden; /* Impede a rolagem horizontal */
-    margin: 0 auto; /* Centraliza o conteúdo */
+.detail{
+    width: 100vw;
+    min-width: 800px;
+    max-width: 1200px;
+    height: auto;
+    overflow-x: hidden;
+    margin: 0 auto;
 }
 
-/* Cabeçalho */
+/* Cabeçalho para telas maiores */
 header {
     display: flex;
-    justify-content: space-between; /* Separa os elementos */
-    align-items: center; /* Centraliza verticalmente */
-    background-color: #f84848; 
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f84848;
     color: white;
     padding: 20px;
     font-size: 1.5em;
     font-weight: bold;
 }
 
+.Logo {
+    width: 200px;
+    height: auto;
+}
+
 .menu {
     display: flex;
-    gap: 15px; /* Espaço entre os botões */
+    gap: 15px;
 }
 
 .btn {
@@ -54,21 +56,19 @@ header {
     transition: color 0.4s ease-in-out;
 }
 
-/* Criando o sublinhado invisível, já com largura total */
 .btn::after {
     content: "";
     position: absolute;
     left: 50%;
-    bottom: -1px; /* Fica logo abaixo do botão */
+    bottom: -1px;
     width: 80%;
     height: 0.8px;
     background-color: #ffffff;
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
-    transform: translateX(-50%); /* Centraliza a linha */
+    transform: translateX(-50%);
 }
 
-/* Fazendo o sublinhado aparecer suavemente */
 .btn:hover::after {
     opacity: 1;
 }
@@ -77,12 +77,135 @@ header {
     opacity: 1;
 }
 
-/*imagem maos 1*/
+#buttonDiv {
+    /* Estilos para o botão do Google em telas maiores */
+}
+
+#userInfo {
+    display: none;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: inherit;
+}
+
+#userPic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+#userName {
+    font-weight: bold;
+}
+
+/* Menu lateral - inicialmente oculto */
+.side-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: #f84848;
+    padding-top: 60px;
+    transition: left 0.3s ease-in-out;
+    z-index: 1001;
+    overflow-y: auto;
+}
+
+.side-menu.open {
+    left: 0;
+}
+
+.side-menu-btn {
+    display: block;
+    color: #ffffff;
+    padding: 15px 20px;
+    text-decoration: none;
+    font-size: 1.1em;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+.side-menu-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Ícone do menu - oculto por padrão em telas maiores */
+.menu-icon {
+    display: none;
+}
+
+/* Banner Rotativo */
+.banner-rotativo {
+    position: relative;
+    width: 80%;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 10px;
+    margin: 20px auto;
+}
+
+.banner-imagens {
+    display: flex;
+    width: 300%;
+    transition: transform 1s ease-in-out;
+}
+
+.banner-item {
+    position: relative;
+}
+
+.banner-imagem {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: filter 0.3s ease;
+}
+
+.banner-item:hover .banner-imagem {
+    filter: brightness(0.7);
+}
+
+.banner-indicadores {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.indicador {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #ccc;
+    margin: 0 8px;
+    cursor: pointer;
+}
+
+.indicador.ativo {
+    background-color: #333;
+}
+
+.banner-texto {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Imagem principal */
 .imagem1 {
-    width: 100%; 
-    max-width: 700px; 
-    height: auto; 
-    display: block; 
+    width: 100%;
+    max-width: 700px;
+    height: auto;
+    display: block;
     margin: 0 auto 20px;
 }
 
@@ -95,16 +218,8 @@ header {
     width: 80%;
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-
-
-    width: 100vw; 
-    min-width: 800px; 
-    max-width: 1200px; 
-            
-
-    height: 100vh; 
-    overflow-x: hidden; 
-    margin: 0 auto; 
+    min-width: 800px;
+    max-width: 1200px;
     height: fit-content;
 }
 
@@ -142,7 +257,7 @@ header {
     text-align: left;
 }
 
-/* BotÃ£o */
+/* Botão */
 .botao {
     background-color: #ffeaea;
     color: #777;
@@ -170,27 +285,229 @@ footer {
 }
 
 .logo-flutuante {
-    position: fixed; /* Mantém o logo fixo na tela */
-    top: 50%; /* Centraliza verticalmente */
-    right: 20px; /* Afasta do lado direito */
-    transform: translateY(-50%); /* Ajusta a posição vertical */
-    width: 80px; /* Define o tamanho do logo */
-    height: auto; /* Mantém a proporção */
-    z-index: 1000; /* Garante que o logo fique sobre os outros elementos */
-    opacity: 0.8; /* Torna o logo um pouco transparente */
-    transition: opacity 0.3s; /* Efeito suave ao passar o mouse */
+    position: fixed;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    width: 80px;
+    height: auto;
+    z-index: 1000;
+    opacity: 0.8;
+    transition: opacity 0.3s;
 }
 
 .logo-flutuante:hover {
-    opacity: 1; /* Deixa o logo 100% visível ao passar o mouse */
+    opacity: 1;
 }
 
-.Logo{
-    width: 200px;
-    height: auto;
+.layoutMap {
+    border: 15px solid #ffeaea;
+    padding: 5px;
 }
 
-.layoutMap
-{   border: 15px solid #ffeaea; 
-    padding: 5px; 
+/* Estilos responsivos para telas com largura máxima de 768px */
+@media (max-width: 768px) {
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px;
+    }
+
+    .Logo {
+        width: 120px;
+        height: auto;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .menu {
+        display: none; /* Oculta o menu principal em telas menores */
+    }
+
+    .menu-icon {
+        display: block; /* Mostra o ícone do menu em telas menores */
+        font-size: 1.5em;
+        color: #ffffff;
+        cursor: pointer;
+        order: -1;
+    }
+
+    .header-right {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        order: 1;
+    }
+
+    #buttonDiv {
+        /* Estilos para o botão do Google em telas menores */
+    }
+
+    #userInfo {
+        display: flex !important;
+    }
+
+    /* Mostra o menu lateral APENAS em telas menores */
+    .side-menu {
+        display: block;
+    }
+
+    /* Estilos responsivos para o conteúdo principal em telas menores */
+    .banner-rotativo {
+        width: 95%;
+        height: auto;
+    }
+
+    .banner-texto {
+        font-size: 0.8em;
+        padding: 8px;
+        bottom: 8px;
+        left: 8px;
+    }
+
+    .imagem1 {
+        width: 90%;
+        max-width: 500px;
+        margin: 15px auto;
+    }
+
+    .conteudo {
+        padding: 20px;
+        margin: 15px auto;
+        width: 95%;
+        min-width: auto;
+        max-width: none;
+    }
+
+    .conteudo h1 {
+        font-size: 2em;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .conteudo h2 {
+        font-size: 1.3em;
+        margin-left: 15px;
+        margin-right: 15px;
+        text-align: left;
+    }
+
+    .conteudo p {
+        font-size: 1.1em;
+        margin-left: 15px;
+        margin-right: 15px;
+        text-align: left;
+    }
+
+    .conteudo li {
+        font-size: 1.1em;
+        margin-left: 30px;
+        margin-right: 15px;
+        text-align: left;
+    }
+
+    .botao {
+        font-size: 1.1em;
+        padding: 15px 40px;
+        border-radius: 40px;
+    }
+
+    footer {
+        padding: 15px;
+        font-size: 0.9em;
+    }
+
+    .logo-flutuante {
+        bottom: 10px;
+        right: 10px;
+        width: 50px;
+        opacity: 0.7;
+    }
+
+    .layoutMap {
+        border: 10px solid #ffeaea;
+        padding: 2px;
+    }
+
+    .layoutMap iframe {
+        width: 100%;
+        height: 300px;
+    }
+
+    .banner-indicadores {
+        bottom: 8px;
+    }
+
+    .indicador {
+        width: 6px;
+        height: 6px;
+        margin: 0 6px;
+    }
+}
+
+/* Ajustes para telas ainda menores (máximo de 480px) */
+@media (max-width: 480px) {
+    header {
+        /* Mantém a direção flex row */
+    }
+
+    .Logo {
+        width: 100px;
+    }
+
+    .menu-icon {
+        font-size: 1.3em;
+    }
+
+    .header-right {
+        gap: 10px;
+    }
+
+    .side-menu {
+        width: 200px;
+    }
+
+    .side-menu-btn {
+        font-size: 1em;
+        padding: 12px 15px;
+    }
+
+    .conteudo h1 {
+        font-size: 1.8em;
+    }
+
+    .conteudo h2 {
+        font-size: 1.2em;
+    }
+
+    .conteudo p {
+        font-size: 1em;
+    }
+
+    .conteudo li {
+        font-size: 1em;
+    }
+
+    .botao {
+        font-size: 1em;
+        padding: 12px 35px;
+    }
+
+    .logo-flutuante {
+        width: 40px;
+        opacity: 0.6;
+    }
+
+    .banner-indicadores {
+        bottom: 5px;
+    }
+
+    .indicador {
+        width: 5px;
+        height: 5px;
+        margin: 0 5px;
+    }
 }

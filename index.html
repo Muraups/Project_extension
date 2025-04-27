@@ -7,13 +7,16 @@
     <script src="Scripts/index.js"></script>
     <link rel="stylesheet" href="Style/style.css">
     <link rel="stylesheet" href="Style/banner.css">
-    <link rel="stylesheet" href="Style/responsive.css">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
     <script src="https://accounts.google.com/gsi/client" async defer></script>
     <script src="https://cdn.jsdelivr.net/npm/jwt-decode@3.1.2/build/jwt-decode.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <header>
+        <div class="menu-icon">
+        <i class="fas fa-bars menu-icon" onclick="toggleMenu()"></i>
+        </div>
         <img src="Logo/logo2.png" alt="Logo" class="Logo">
         <div class="menu">
             <a href="index.html" class="btn active">Início</a>
@@ -23,10 +26,17 @@
         </div>
         <div id="buttonDiv"></div>
         <a href="perfil.html" id="userInfo" style="display: none; align-items: center; gap: 10px; text-decoration: none; color: inherit;">
-            <img id="userPic" src="" alt="Foto do usuário" style="width: 40px; height: 40px; border-radius: 50%;">
+            <img id="userPic" src="" alt="Foto do usuário" >
             <span id="userName" style="font-weight: bold;"></span>
         </a>
     </header>
+
+    <div class="side-menu" id="sideMenu">
+        <a href="index.html" class="side-menu-btn active">Início</a>
+        <a href="objetivo.html" class="side-menu-btn">Objetivo</a>
+        <a href="quiz.html" class="side-menu-btn">Quiz</a>
+        <a href="sobre.html" class="side-menu-btn">Sobre Nós</a>
+    </div>
 
     <div class="banner-rotativo">
         <div class="banner-imagens">
@@ -63,20 +73,20 @@
     <section class="conteudo">
         <h1>A Importância da Doação de Sangue</h1>
         <p>A doação de sangue é um ato voluntário e altruísta que desempenha um papel crucial na manutenção da saúde pública e no salvamento de vidas. Todos os dias, hospitais e clínicas ao redor do mundo utilizam sangue para tratar pacientes em uma variedade de situações, como emergências, cirurgias complexas, tratamento de doenças crônicas e doenças graves, como o câncer.</p>
-        
+
         <h1>Por Que Doar Sangue?</h1>
         <h2>Salvar Vidas</h2>
         <p>Uma única doação de sangue pode salvar até quatro vidas. O sangue doado é separado em diferentes componentes, como plaquetas, plasma e glóbulos vermelhos, que podem ser utilizados de maneira específica para tratar diferentes condições médicas.</p>
-        
+
         <h2>Abastecimento Constante</h2>
         <p>O sangue tem um prazo de validade limitado, variando de 5 a 42 dias dependendo do componente. Portanto, é essencial manter um fluxo constante de doações para garantir que os bancos de sangue tenham sempre o necessário em estoque.</p>
         <div id="conteudoExpandido" style="display: none;">
             <h2>Emergências e Cirurgias:</h2>
             <p>Em situações de emergência, como acidentes de trânsito ou desastres naturais, a disponibilidade imediata de sangue pode ser a diferença entre a vida e a morte. Ter um estoque adequado nos hospitais é fundamental para o tratamento desses casos.</p>
-            
+
             <h2>Tratamento de Doenças:</h2>
             <p>Pacientes com doenças crônicas, como anemia falciforme ou hemofilia, dependem de transfusões regulares para sobreviver. O sangue também é essencial para o tratamento de pacientes submetidos à quimioterapia, que pode diminuir drasticamente a contagem de células sanguíneas.</p>
-            
+
             <h1>Mitos e Curiosidades Sobre a Doação de Sangue</h1>
             <h2>Mitos Comuns:</h2>
             <ul>
@@ -85,7 +95,7 @@
                 <li>"Pessoas com tatuagens não podem doar sangue.": Após 12 meses da tatuagem, a doação é permitida.</li>
                 <li>"Doar sangue enfraquece.": O corpo repõe o sangue doado em poucas horas.</li>
             </ul>
-        
+
             <h2>Curiosidades:</h2>
             <ul>
                 <li>O tipo sanguíneo O negativo é considerado doador universal.</li>
@@ -146,14 +156,14 @@
             </div>
         </div>
 
-        
+
         <button class="botao" onclick="alternarConteudo()">Mostrar mais</button>
     </section>
 
     <footer>
-        <p>&copy; 2025 O+ Life. Todos os direitos reservados.</p>
+        <p>© 2025 O+ Life. Todos os direitos reservados.</p>
     </footer>
-    
+
     <a href="https://www.unifil.br" target="_blank">
         <img src="Logo/unifil.png" alt="Logo" class="logo-flutuante">
     </a>
@@ -165,5 +175,12 @@
     <p id="email"></p>
     <p id="verifiedEmail"></p>
     <img id="picture" style="max-width: 100px; border-radius: 50%;" />
+
+    <script>
+        function toggleMenu() {
+            const sideMenu = document.getElementById('sideMenu');
+            sideMenu.classList.toggle('open');
+        }
+    </script>
 </body>
 </html>

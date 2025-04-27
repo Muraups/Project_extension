@@ -1,48 +1,17 @@
-.banner-rotativo {
-    position: relative;
-    width: 80%;
-    height: 300px;
-    overflow: hidden;
-    border-radius: 10px;
-    margin: 20px auto;
-}
-
-.banner-imagens {
-    display: flex;
-    width: 300%;
-    transition: transform 1s ease-in-out;
-}
-
-.banner-item {
-    position: relative;
-}
-
-.banner-imagem {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: filter 0.3s ease;
-}
-
-.banner-item:hover .banner-imagem {
-    filter: brightness(0.7);
-}
-
 .banner-indicadores {
     position: absolute;
-    bottom: 10px;
+    bottom: 10px; /* Vamos tentar um valor menor aqui */
     left: 50%;
     transform: translateX(-50%);
 }
 
 .indicador {
     display: inline-block;
-    width: 10px;
-    height: 10px;
+    width: 8px;
+    height: 8px;
     border-radius: 50%;
     background-color: #ccc;
-    margin: 0 5px;
+    margin: 0 8px;
     cursor: pointer;
 }
 
@@ -58,4 +27,52 @@
     color: white;
     padding: 10px;
     border-radius: 5px;
+}
+
+/* Estilos responsivos para telas com largura máxima de 768px */
+@media (max-width: 768px) {
+    .banner-indicadores {
+        bottom: 8px; /* Ajuste aqui se precisar */
+    }
+
+    .indicador {
+        width: 8px;
+        height: 8px;
+        margin: 0 5px;
+    }
+    
+    .banner-texto {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        padding: 10px;
+        border-radius: 5px;
+        font-size: 20px;
+    }
+}
+
+/* Ajustes para telas ainda menores (máximo de 480px) */
+@media (max-width: 480px) {
+    .banner-indicadores {
+        bottom: 0.1px; /* Ajuste aqui se precisar */
+    }
+
+    .indicador {
+        width: 6px;
+        height: 6px;
+        margin: 0 5px;
+    }
+
+    .banner-texto {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        padding: 10px;
+        border-radius: 5px;
+        font-size: 10px;
+    }
 }

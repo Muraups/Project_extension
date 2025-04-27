@@ -342,12 +342,11 @@ footer {
     }
 
     #buttonDiv {
-        /* Estilos para o botão do Google em telas menores */
+        width: 40px;
+        height: auto;
+        margin-left: auto; /* Empurra o elemento para a direita */
     }
 
-    #userInfo {
-        display: flex !important;
-    }
 
     /* Mostra o menu lateral APENAS em telas menores */
     .side-menu {
@@ -450,9 +449,6 @@ footer {
 
 /* Ajustes para telas ainda menores (máximo de 480px) */
 @media (max-width: 480px) {
-    header {
-        /* Mantém a direção flex row */
-    }
 
     .Logo {
         width: 100px;
@@ -509,5 +505,11 @@ footer {
         width: 5px;
         height: 5px;
         margin: 0 5px;
+    }
+
+    #buttonDiv {
+        width: 40px;
+        height: auto;
+        margin-left: auto; /* Empurra o elemento para a direita */
     }
 }

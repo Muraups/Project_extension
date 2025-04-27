@@ -46,6 +46,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
+
 window.onload = function () {
     google.accounts.id.initialize({
         client_id: "SEU_CLIENT_ID.apps.googleusercontent.com", // Substitua pelo seu Client ID
@@ -54,10 +55,10 @@ window.onload = function () {
 
     function renderGoogleButton() {
         const buttonDiv = document.getElementById("buttonDiv");
-        const isMobile = window.innerWidth <= 768; // Define o limite para telas menores
+        const isMobile = window.innerWidth <= 768;
 
         const buttonConfig = isMobile
-            ? { // Configuração para telas menores (ícone)
+            ? {
                 theme: "outline",
                 type: "icon",
                 shape: "circle",
@@ -66,7 +67,7 @@ window.onload = function () {
                 width: "48px",
                 height: "48px"
             }
-            : { // Configuração para desktops (formato raiz)
+            : {
                 theme: "outline",
                 size: "large",
                 type: "standard",
@@ -75,18 +76,16 @@ window.onload = function () {
                 logo_alignment: "left"
             };
 
-        google.accounts.id.renderButton(buttonDiv, buttonConfig);
-        google.accounts.id.prompt(); // Exibe o One Tap login
+        // Adicionando um pequeno atraso ANTES de renderizar o botão
+        setTimeout(function() {
+            google.accounts.id.renderButton(buttonDiv, buttonConfig);
+            google.accounts.id.prompt(); // Exibe o One Tap login
+        }, 200); // 200 milissegundos de atraso
     }
 
-    // Renderiza o botão inicialmente
     renderGoogleButton();
-
-    // Adiciona um listener para redimensionamento da tela para re-renderizar se necessário
     window.addEventListener('resize', renderGoogleButton);
 };
-
-// ... (resto do seu código JavaScript: handleCredentialResponse, exibirLocaisDoacao, etc.) ...
 
 
 function alternarConteudo() {

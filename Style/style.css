@@ -341,11 +341,12 @@ footer {
         order: 1;
     }
 
-    #buttonDiv {
+    /*#buttonDiv {
         width: 40px;
         height: auto;
-        margin-left: auto; /* Empurra o elemento para a direita */
-    }
+        margin-left: auto; 
+    } 
+    */
 
 
     /* Mostra o menu lateral APENAS em telas menores */
@@ -507,9 +508,10 @@ footer {
         margin: 0 5px;
     }
 
-    #buttonDiv {
+    /*#buttonDiv {
         width: 40px;
         height: auto;
-        margin-left: auto; /* Empurra o elemento para a direita */
-    }
+        margin-left: auto; 
+    } 
+    */
 }

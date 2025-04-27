@@ -52,18 +52,25 @@ window.onload = function () {
         callback: handleCredentialResponse
     });
 
-    google.accounts.id.renderButton(
-        document.getElementById("buttonDiv"),
-        { 
-            theme: "outline", 
-            type: "standard",
-            shape: "pill",
-            logo_alignment: "left"
-        }
-    );
+    // Adicionando um pequeno atraso antes de renderizar o botão
+    setTimeout(function() {
+        google.accounts.id.renderButton(
+            document.getElementById("buttonDiv"),
+            {
+                theme: "outline",
+                type: "icon",
+                shape: "circle",
+                text: "signin_with",
+                logo_alignment: "center",
+                width: "48px",
+                height: "48px"
+            }
+        );
 
-    google.accounts.id.prompt(); // Exibe o One Tap login
+        google.accounts.id.prompt(); // Exibe o One Tap login
+    }, 200); // 200 milissegundos de atraso (tente ajustar se necessário)
 }
+
 
 function alternarConteudo() {
     var conteudo = document.getElementById("conteudoExpandido");

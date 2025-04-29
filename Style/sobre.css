@@ -267,7 +267,9 @@ u {
         align-items: center;
         padding: 15px;
     }
-
+    #userName {
+        display: none;
+    }
     .Logo {
         width: 120px;
         height: auto;

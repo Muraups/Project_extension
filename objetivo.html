@@ -103,10 +103,22 @@
     <img id="picture" style="max-width: 100px; border-radius: 50%;" />
 
     <script>
-        function toggleMenu() {
-            const sideMenu = document.getElementById('sideMenu');
-            sideMenu.classList.toggle('open');
+    function toggleMenu() {
+        const sideMenu = document.getElementById('sideMenu');
+        sideMenu.classList.toggle('open');
+    }
+
+    document.addEventListener('click', function(event) {
+        const sideMenu = document.getElementById('sideMenu');
+        const menuIcon = document.querySelector('.menu-icon');
+        const isClickInsideMenu = sideMenu.contains(event.target);
+        const isClickInsideIcon = menuIcon && menuIcon.contains(event.target);
+        const isMenuOpen = sideMenu.classList.contains('open');
+
+        if (isMenuOpen && !isClickInsideMenu && !isClickInsideIcon) {
+            sideMenu.classList.remove('open');
         }
+    });
     </script>
 </body>
 </html>

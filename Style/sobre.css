@@ -12,12 +12,12 @@ body {
     font-family: "Quicksand", sans-serif;
 }
 
-.detail{   
+.detail {
     /* Fixando o tamanho */
     width: 100vw; /* Mantém o corpo ocupando a largura da tela */
     min-width: 800px; /* Define um tamanho mínimo para o corpo */
     max-width: 1200px; /* Define um tamanho máximo */
-        
+
     /* Fixando a altura da tela */
     height: 100vh; /* Mantém o body ocupando toda a altura da tela */
     overflow-x: hidden; /* Impede a rolagem horizontal */
@@ -34,11 +34,25 @@ header {
     padding: 20px;
     font-size: 1.5em;
     font-weight: bold;
+    margin-bottom: 50px;
+}
+
+.Logo {
+    width: 200px;
+    height: auto;
 }
 
 .menu {
     display: flex;
     gap: 15px; /* Espaço entre os botões */
+}
+
+.menu-icon {
+    display: none; /* Ocultar por padrão para telas maiores */
+}
+
+.side-menu {
+    display: none; /* Ocultar por padrão para telas maiores */
 }
 
 .btn {
@@ -75,7 +89,7 @@ header {
 
 .btn.active::after {
     opacity: 1;
-}   
+}
 
 
 /* Rodapé */
@@ -123,7 +137,7 @@ footer {
 }
 
 /* Grid para organizar os participantes */
-.team1, .team2{
+.team1, .team2, .team3 {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -146,6 +160,7 @@ footer {
 .participant:hover {
     transform: scale(1.05); /* Aumenta o tamanho do elemento */
 }
+
 .participant img {
     width: 200px;
     height: 200px;
@@ -173,25 +188,189 @@ footer {
     text-decoration: underline;
 }
 
-/* Responsividade */
-@media (max-width: 768px) {
-    .team {
-        flex-direction: column;
-        align-items: center;
-    }
-}
-
-u{
+u {
     font-weight: bolder !important;
     color: #ff4f4f;
 }
 
-.team img{
+.team img {
     height: 200px;
     width: 200px;
 }
 
-.Logo{
+.Logo {
     width: 200px;
     height: auto;
+}
+
+
+#userInfo {
+    display: none;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: inherit;
+}
+
+#userPic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+#userName {
+    font-weight: bold;
+}
+
+/* Menu lateral - inicialmente oculto */
+.side-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: #f84848;
+    padding-top: 60px;
+    transition: left 0.3s ease-in-out;
+    z-index: 1001;
+    overflow-y: auto;
+}
+
+.side-menu.open {
+    left: 0;
+}
+
+.side-menu-btn {
+    display: block;
+    color: #ffffff;
+    padding: 15px 20px;
+    text-decoration: none;
+    font-size: 1.1em;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+.side-menu-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Ícone do menu - oculto por padrão em telas maiores */
+.menu-icon {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px;
+    }
+
+    .Logo {
+        width: 120px;
+        height: auto;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 2.5%;
+    }
+
+    .menu {
+        display: none; /* Oculta o menu principal em telas menores */
+    }
+
+    .menu-icon {
+        display: block; /* Mostra o ícone do menu em telas menores */
+        font-size: 1.5em;
+        color: #ffffff;
+        cursor: pointer;
+        order: -1;
+    }
+
+    .header-right {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        order: 1;
+    }
+
+    /* Mostra o menu lateral APENAS em telas menores */
+    .side-menu {
+        display: block;
+    }
+
+    /* Ajuste da Logo Flutuante em telas menores */
+    .logo-flutuante {
+        bottom: 20px; /* Tentando um valor menor para bottom */
+        right: 10px;
+        width: 50px;
+        opacity: 0.7;
+        top: 50%;
+        transform: translateY(0);
+    }
+
+
+
+
+
+
+    .participant {
+        margin: 1px 45px;
+        background-color: #f4f4f4;
+        padding: 20px;
+        border-radius: 10px;
+        width: 250px;
+        text-align: center;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+    }
+    .participant a {
+        color: #f84848;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    u {
+        font-weight: bolder !important;
+        color: #ff4f4f;
+        font-size: 85%;
+    }
+
+
+}
+
+/* Estilos responsivos para telas com largura máxima de 480px (celulares menores) */
+@media (max-width: 480px) {
+    .Logo {
+        width: 100px;
+        top: 2.5%;
+    }
+
+    .menu-icon {
+        font-size: 1.3em;
+    }
+
+    .header-right {
+        gap: 10px;
+    }
+
+    .side-menu {
+        width: 200px;
+    }
+
+    .side-menu-btn {
+        font-size: 1em;
+        padding: 12px 15px;
+    }
+
+    /* Ajuste adicional da Logo Flutuante em telas ainda menores */
+    .logo-flutuante {
+        bottom: 15px; /* Tentando um valor ainda menor para bottom */
+        right: 10px;
+        width: 40px;
+        top: 50%;
+        opacity: 0.6;
+    }
 }

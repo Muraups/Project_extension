@@ -1,4 +1,21 @@
-// OBJETIVO.JS
+
+function toggleMenu() {
+    const sideMenu = document.getElementById('sideMenu');
+    sideMenu.classList.toggle('open');
+}
+
+document.addEventListener('click', function(event) {
+    const sideMenu = document.getElementById('sideMenu');
+    const menuIcon = document.querySelector('.menu-icon');
+    const isClickInsideMenu = sideMenu.contains(event.target);
+    const isClickInsideIcon = menuIcon && menuIcon.contains(event.target);
+    const isMenuOpen = sideMenu.classList.contains('open');
+
+    if (isMenuOpen && !isClickInsideMenu && !isClickInsideIcon) {
+        sideMenu.classList.remove('open');
+    }
+});
+
 function handleCredentialResponse(response) {
     if (!response.credential) {
         console.error("Credential is missing.");
@@ -10,10 +27,8 @@ function handleCredentialResponse(response) {
         console.log(data);
         localStorage.setItem("userData", JSON.stringify(data));
 
-        // Esconde o botão de login
         document.getElementById("buttonDiv").style.display = "none";
 
-        // Exibe os dados do usuário
         document.getElementById("userInfo").style.display = "flex";
         document.getElementById("userName").textContent = data.given_name; // Primeiro nome
         document.getElementById("userPic").src = data.picture;
@@ -22,7 +37,6 @@ function handleCredentialResponse(response) {
     }
 }
 
-// Verifica se já existe um usuário logado
 document.addEventListener("DOMContentLoaded", function() {
     const userData = JSON.parse(localStorage.getItem("userData"));
     if (userData) {
@@ -31,9 +45,8 @@ document.addEventListener("DOMContentLoaded", function() {
         document.getElementById("userName").textContent = userData.given_name; // Primeiro nome
         document.getElementById("userPic").src = userData.picture;
     }
-
-    renderGoogleButton(); // Chama a função para renderizar o botão ao carregar a página
 });
+
 
 window.onload = function () {
     google.accounts.id.initialize({
@@ -75,6 +88,12 @@ window.onload = function () {
     window.addEventListener('resize', renderGoogleButton);
 };
 
-// Adiciona um listener para redimensionamento da tela para re-renderizar o botão se necessário
-window.addEventListener('resize', renderGoogleButton);
+document.addEventListener("DOMContentLoaded", function() {
+    const userData = JSON.parse(localStorage.getItem("userData"));
+    if (userData) {
+        document.getElementById("userInfo").style.display = "flex";
+        document.getElementById("userName").textContent = userData.given_name; // Primeiro nome
+        document.getElementById("userPic").src = userData.picture;
+    }
+});
 

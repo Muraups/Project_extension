@@ -6,6 +6,7 @@
     <title>Perfil do Usuário</title>
     <link rel="stylesheet" href="Style/perfil.css">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <header>
@@ -21,11 +22,6 @@
             <a href="quiz.html" class="btn">Quiz</a>
             <a href="sobre.html" class="btn ">Sobre Nós</a>
         </div>
-        <div id="buttonDiv"></div>
-        <a href="perfil.html" id="userInfo" style="display: none; align-items: center; gap: 10px; text-decoration: none; color: inherit;">
-            <img id="userPic" src="" alt="Foto do usuário" >
-            <span id="userName"></span>
-        </a>
     </header>
 
     <div class="side-menu" id="sideMenu">
@@ -101,7 +97,7 @@ function logout() {
 function toggleMenu() {
     const sideMenu = document.getElementById('sideMenu');
     sideMenu.classList.toggle('open');
-}
+};
 
 document.addEventListener('click', function(event) {
     const sideMenu = document.getElementById('sideMenu');

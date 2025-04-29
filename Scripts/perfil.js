@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function() {
 function logout() {
     localStorage.removeItem("userData");
     window.location.href = "index.html";
-}
+};
 
 
 function toggleMenu() {

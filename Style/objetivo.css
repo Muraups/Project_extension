@@ -266,6 +266,10 @@ header {
         padding: 15px;
     }
 
+    #userName {
+        display: none;
+    }
+
     .Logo {
         width: 120px;
         height: auto;
@@ -360,6 +364,10 @@ header {
     .Logo {
         width: 100px;
         top: 2.5%;
+    }
+
+    #userName {
+        display: none;
     }
 
     .menu-icon {

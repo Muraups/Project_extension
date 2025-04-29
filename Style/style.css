@@ -454,6 +454,10 @@ footer {
     .Logo {
         width: 100px;
     }
+    
+    #userName {
+        display: none;
+    }
 
     .menu-icon {
         font-size: 1.3em;
